@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Radley:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+@import "tailwindcss";
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* corta cualquier desborde horizontal */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@theme{
+    --font-dancing: "Dancing Script", cursive;
+    --font-playfair: "Playfair Display", serif;
+    --font-lora: "Lora", serif;
+    --font-radley: "Radley", serif;
+    --font-ms-madi: "Ms Madi", cursive;
+    --font-marck-script: "Marck Script", cursive;
+}
+@layer components {
+  .rsvp-select, .rsvp-select option {
+    font-size: 0.875rem !important;   /* 14px */
+    line-height: 1.25rem !important;  /* 20px */
+  }
+}
+
+
+.section-wave-top {
+    clip-path: ellipse(150% 100% at 50% 70%);
+}
+
+.section-wave-bottom {
+    clip-path: ellipse(150% 100% at 50% 0%);
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.embla {
+  position: relative;
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+}
