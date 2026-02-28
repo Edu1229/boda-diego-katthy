@@ -53,9 +53,9 @@ const WeddingDate: React.FC = () => {
 				viewport={{once: false, amount: 0.3}}
 			>
 				<h2 className="text-4xl md:text-6xl font-serif text-[#7A695D]">
-					22 / Nov / 2025
+					21 / MARZO / 2026
 				</h2>
-				<p className="text-lg text-[#9B8C74] mt-2">Sábado, 1:00 PM</p>
+				<p className="text-lg text-[#9B8C74] mt-2">Sábado, 2:00 PM</p>
 			</motion.div>
 		</section>
 	);

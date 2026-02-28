@@ -4,7 +4,7 @@ import flecha from "../../assets/img/flecha.svg";
 
 const WeddingCountdown = () => {
 	const calculateTimeLeft = () => {
-		const targetDate = new Date("2025-11-22T13:00:00");
+		const targetDate = new Date("2026-03-21T14:00:00");
 		const now = new Date();
 		const difference = targetDate.getTime() - now.getTime();
 
@@ -60,10 +60,10 @@ const WeddingCountdown = () => {
 							{key === "days"
 								? "Días"
 								: key === "hours"
-								? "Horas"
-								: key === "minutes"
-								? "Min."
-								: "Seg."}
+									? "Horas"
+									: key === "minutes"
+										? "Min."
+										: "Seg."}
 						</span>
 					</motion.div>
 				))}

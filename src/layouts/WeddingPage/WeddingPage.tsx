@@ -55,12 +55,12 @@ const WeddingPage: React.FC = () => {
 					>
 						{/* ✨ Contenido de la invitación */}
 						<WeddingInvitation />
+						<WeddingCountdown />
+						<WeddingDate />
 						<PassesSection />
 						<ParentsSection />
 						<SponsorsSection />
 						<LoveWedding />
-						<WeddingDate />
-						<WeddingCountdown />
 						<EventLocations />
 						<DressCode />
 						<GiftsAndConfirmation />

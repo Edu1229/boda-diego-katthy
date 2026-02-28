@@ -42,7 +42,8 @@ const PassesSection: React.FC = () => {
 				transition={{duration: 1}}
 				viewport={{once: false}}
 			>
-				Su presencia es el regalo más valioso que podemos recibir.
+				Cuando te das cuenta de que quieres pasar el resto de tu vida con
+				alguien deseas que el resto de tu vida empiece antes.
 			</motion.h3>
 
 			{/* 💞 Separador con corazón */}
