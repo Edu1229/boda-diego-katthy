@@ -21,7 +21,7 @@ const PassesSection: React.FC = () => {
 	const paseText = paseCount === 1 ? "1 persona" : `${paseCount} personas`;
 
 	return (
-		<section className="relative w-full text-center py-16 px-6 bg-gradient-to-b from-[#7A695D] via-[#725E50] to-[#5E4C3D] overflow-hidden text-white">
+		<section className="relative w-full text-center py-16 px-6 bg-gradient-to-b from-[#a1d6ff] via-[#BEDFFA] to-[#1796ff] overflow-hidden text-white">
 			{/* 🌸 Flor decorativa sutil */}
 			<motion.img
 				src={flor}
@@ -36,7 +36,7 @@ const PassesSection: React.FC = () => {
 
 			{/* ✨ Mensaje principal */}
 			<motion.h3
-				className="text-lg md:text-3xl font-serif mb-4 leading-relaxed text-[#FDF8F3] max-w-2xl mx-auto px-4"
+				className="text-lg md:text-3xl font-serif mb-4 leading-relaxed text-[#c49302] max-w-2xl mx-auto px-4"
 				initial={{opacity: 0, y: 20}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 1}}
@@ -78,7 +78,7 @@ const PassesSection: React.FC = () => {
 
 			{/* 💌 Subtexto */}
 			<motion.p
-				className="mt-8 text-sm md:text-base text-[#F6E8D8]/90 italic font-light"
+				className="mt-8 text-sm md:text-base text-[#a78e3f] italic font-semibold"
 				initial={{opacity: 0, y: 15}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 1, delay: 0.4}}
@@ -96,8 +96,7 @@ const PassesSection: React.FC = () => {
 				viewport={{once: false}}
 			>
 				<p className="uppercase tracking-[0.15em] text-sm md:text-base text-[#FDF8F3] font-medium">
-					Pase para{" "}
-					<span className="text-[#F4D9B0] font-semibold">{paseText}</span>
+					Pase para <span className="text-[#7d7457] font-bold">{paseText}</span>
 				</p>
 			</motion.div>
 		</section>

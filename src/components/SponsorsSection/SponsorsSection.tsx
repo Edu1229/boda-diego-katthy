@@ -52,8 +52,8 @@ const SponsorsSection: React.FC = () => {
 				transition={{duration: 0.9, delay: 0.2}}
 				viewport={{once: false, amount: 0.2}}
 			>
-				<p>Augusto Rios Rimaycuna</p>
-				<p>Juana Valdiviezo Valdiviezo</p>
+				<p className="text-sm md:text-base">Cesar Ramos Ancajima</p>
+				<p className="text-sm md:text-base">Ingrid Navarro Flores</p>
 			</motion.div>
 
 			{/* 💍 Testigos de boda */}

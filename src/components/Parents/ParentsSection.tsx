@@ -1,69 +1,190 @@
 import React from "react";
-import {motion} from "framer-motion";
+import {motion, useScroll, useTransform} from "framer-motion";
 import flor from "../../assets/img/image.png";
 
+/* ── Sub-componente: bloque de familia (padres o hermanos) ── */
+interface FamilyBlockProps {
+	label: string;
+	names: string[];
+	delay?: number;
+}
+
+const FamilyBlock: React.FC<FamilyBlockProps> = ({label, names, delay = 0}) => (
+	<motion.div
+		className="w-full"
+		initial={{opacity: 0, y: 18}}
+		whileInView={{opacity: 1, y: 0}}
+		transition={{duration: 0.7, delay}}
+		viewport={{once: false, amount: 0.2}}
+	>
+		{/* Etiqueta de categoría */}
+		<p className="uppercase text-[10px] tracking-[0.25em] text-[#A38B6F] mb-2 font-medium">
+			{label}
+		</p>
+		{/* Línea decorativa */}
+		<div className="flex items-center justify-center gap-2 mb-3">
+			<div className="h-px w-6 bg-[#C7B299]" />
+			<div className="w-1 h-1 rounded-full bg-[#C7B299]" />
+			<div className="h-px w-6 bg-[#C7B299]" />
+		</div>
+		<div className="space-y-1">
+			{names.map((name, i) => (
+				<p
+					key={i}
+					className="text-sm md:text-[15px] text-gray-600 leading-relaxed"
+				>
+					{name}
+				</p>
+			))}
+		</div>
+	</motion.div>
+);
+
+/* ── Sub-componente: columna completa de una familia ── */
+interface FamilySideProps {
+	title: string;
+	subtitle: string;
+	parents: string[];
+	siblings: string[];
+	delayBase?: number;
+}
+
+const FamilySide: React.FC<FamilySideProps> = ({
+	title,
+	subtitle,
+	parents,
+	siblings,
+	delayBase = 0,
+}) => (
+	<motion.div
+		className="flex flex-col items-center gap-6 w-full sm:w-[45%]"
+		initial={{opacity: 0, y: 30}}
+		whileInView={{opacity: 1, y: 0}}
+		transition={{duration: 0.9, delay: delayBase}}
+		viewport={{once: false, amount: 0.2}}
+	>
+		{/* Encabezado de familia */}
+		<div className="text-center">
+			<h2 className="font-[Playfair_Display] text-2xl md:text-3xl text-[#7A695D] leading-snug">
+				{title}
+			</h2>
+			<p className="text-[11px] uppercase tracking-widest text-[#A38B6F] mt-1">
+				{subtitle}
+			</p>
+		</div>
+
+		{/* Tarjeta interna */}
+		<div className="w-full max-w-xs border border-[#E3D5C6] rounded-2xl px-6 py-7 bg-white/80 backdrop-blur-sm shadow-sm space-y-6 text-center">
+			<FamilyBlock label="Padres" names={parents} delay={delayBase + 0.1} />
+			<div className="h-px w-full bg-[#EDE0D4]" />
+			<FamilyBlock label="Hermanos" names={siblings} delay={delayBase + 0.2} />
+		</div>
+	</motion.div>
+);
+
+/* ── Componente principal ── */
 const ParentsSection: React.FC = () => {
+	const {scrollYProgress} = useScroll();
+	const florTopY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+	const florBotY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
 	return (
-		<section className="relative z-10 text-center px-6 py-16 bg-white overflow-hidden">
-			{/* 🌸 Flor decorativa superior */}
+		<section className="relative z-10 text-center px-6 py-20 bg-[#FDFAF7] overflow-hidden">
+			{/* ── Flores decorativas ── */}
 			<motion.img
 				src={flor}
-				alt="Decoración floral"
-				className="absolute top-0 right-0 w-44 sm:w-52 md:w-60 opacity-30 pointer-events-none select-none transform translate-x-6 -translate-y-4 rotate-[15deg]"
-				initial={{opacity: 0, y: -20}}
-				whileInView={{opacity: 0.35, y: 0}}
+				alt=""
+				style={{y: florTopY}}
+				className="absolute top-0 right-0 w-44 sm:w-56 opacity-30 pointer-events-none select-none translate-x-6 -translate-y-4 rotate-[15deg]"
+				initial={{opacity: 0}}
+				whileInView={{opacity: 0.3}}
+				transition={{duration: 1.2}}
+				viewport={{once: false, amount: 0.2}}
+			/>
+			<motion.img
+				src={flor}
+				alt=""
+				style={{y: florBotY}}
+				className="absolute bottom-0 left-0 w-44 sm:w-56 opacity-25 pointer-events-none select-none -translate-x-8 translate-y-4 rotate-[200deg]"
+				initial={{opacity: 0}}
+				whileInView={{opacity: 0.25}}
 				transition={{duration: 1.2}}
 				viewport={{once: false, amount: 0.2}}
 			/>
 
-			{/* ✨ Texto introductorio */}
-			<motion.p
-				className="text-[#7A695D] text-base sm:text-lg mb-8 tracking-wide"
+			{/* ── Encabezado de sección ── */}
+			<motion.div
+				className="relative z-10 mb-12"
 				initial={{opacity: 0, y: 20}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 0.8}}
 				viewport={{once: false, amount: 0.2}}
 			>
-				Con la bendición de nuestros padres
-			</motion.p>
-
-			{/* 💞 Padres */}
-			<motion.div
-				className="flex flex-col sm:flex-row justify-center gap-10 text-sm md:text-base text-gray-700"
-				initial={{opacity: 0, y: 20}}
-				whileInView={{opacity: 1, y: 0}}
-				transition={{duration: 1, delay: 0.2}}
-				viewport={{once: false, amount: 0.2}}
-			>
-				<div>
-					<h1 className="font-bold mb-1 text-[#7A695D]">Padres del Novio</h1>
-					<p className="text-xs">Alberto Maza Curay (+)</p>
-					<p className="text-xs">Faustina Sandoval Quispe (+)</p>
-				</div>
-				<div>
-					<h1 className="font-bold mb-1 text-[#7A695D]">Padres de la Novia</h1>
-					<p className="text-xs">Jorge Benjamín García Castillo</p>
-					<p className="text-xs">María Elena Saldarriaga Ancajima</p>
+				<p className="uppercase text-[10px] tracking-[0.3em] text-[#A38B6F] mb-3">
+					Con el amor y bendición de
+				</p>
+				<h1 className="font-[Playfair_Display] text-3xl md:text-4xl text-[#7A695D]">
+					Nuestras Familias
+				</h1>
+				{/* Ornamento */}
+				<div className="flex items-center justify-center gap-3 mt-4">
+					<div className="h-px w-10 bg-[#C7B299]" />
+					<span className="text-[#C7B299] text-xs">✦</span>
+					<div className="h-px w-10 bg-[#C7B299]" />
 				</div>
 			</motion.div>
 
-			{/* 💍 Nombres */}
+			{/* ── Columnas de familia ── */}
+			<div className="relative z-10 flex flex-col sm:flex-row items-start justify-center gap-8 md:gap-14">
+				{/* Novio */}
+				<FamilySide
+					title="Familia Mogollon"
+					subtitle="Del Novio"
+					parents={["Marlem Mogollon Meca", "Ruth Villena Irigoyen"]}
+					siblings={["Abby Mogollon Villena", "Billy Mogollon Villena"]}
+					delayBase={0.1}
+				/>
+
+				{/* Separador central */}
+				<motion.div
+					className="hidden sm:flex flex-col items-center gap-2 self-center py-4"
+					initial={{opacity: 0, scale: 0.8}}
+					whileInView={{opacity: 1, scale: 1}}
+					transition={{duration: 0.8, delay: 0.3}}
+					viewport={{once: false, amount: 0.2}}
+				>
+					<div className="w-px h-12 bg-[#D9C9B8]" />
+					<span className="text-[#C7B299] text-xl">♡</span>
+					<div className="w-px h-12 bg-[#D9C9B8]" />
+				</motion.div>
+
+				{/* Novia */}
+				<FamilySide
+					title="Familia Mendoza"
+					subtitle="De la Novia"
+					parents={[
+						"Juan Eduardo Mendoza Ortiz",
+						"Milagros del Pilar Crisanto Panta",
+					]}
+					siblings={[
+						"Eduardo Aldair Mendoza Crisanto",
+						"Thiago Eduardo Mendoza Crisanto",
+					]}
+					delayBase={0.2}
+				/>
+			</div>
+
+			{/* ── Línea separadora inferior ── */}
 			<motion.div
-				className="font-marck-script text-[#9B8C74] text-5xl sm:text-7xl font-light mt-10"
-				initial={{opacity: 0, scale: 0.95}}
-				whileInView={{opacity: 1, scale: 1}}
-				transition={{duration: 1, delay: 0.5, ease: "easeOut"}}
+				className="flex items-center justify-center gap-3 mt-14"
+				initial={{opacity: 0}}
+				whileInView={{opacity: 1}}
+				transition={{duration: 1, delay: 0.4}}
 				viewport={{once: false, amount: 0.2}}
 			>
-				<h1 className="font-marck-script text-[#9B8C74] text-6xl md:text-7xl text-start sm:text-center ml-4 sm:mr-80">
-					Javier
-				</h1>
-				<div className="flex justify-end sm:justify-center gap-6 items-start sm:ml-40">
-					<p className="text-xl sm:text-4xl sm:mr-8">&amp;</p>
-					<h1 className="font-marck-script text-[#9B8C74] text-6xl md:text-6xl mt-2 mr-4">
-						JeMa
-					</h1>
-				</div>
+				<div className="h-px w-14 bg-[#C7B299]" />
+				<span className="text-[#C7B299] text-sm">✦</span>
+				<div className="h-px w-14 bg-[#C7B299]" />
 			</motion.div>
 		</section>
 	);
