@@ -21,7 +21,13 @@ const PassesSection: React.FC = () => {
 	const paseText = paseCount === 1 ? "1 persona" : `${paseCount} personas`;
 
 	return (
-		<section className="relative w-full text-center py-16 px-6 bg-gradient-to-b from-[#a1d6ff] via-[#BEDFFA] to-[#1796ff] overflow-hidden text-white">
+		<section
+			className="relative w-full text-center py-16 px-6 overflow-hidden text-white"
+			style={{
+				background:
+					"linear-gradient(160deg, #C8EBF9 0%, #DDF2FC 50%, #9ED4EC 100%)",
+			}}
+		>
 			{/* 🌸 Flor decorativa sutil */}
 			<motion.img
 				src={flor}
@@ -36,7 +42,7 @@ const PassesSection: React.FC = () => {
 
 			{/* ✨ Mensaje principal */}
 			<motion.h3
-				className="text-lg md:text-3xl font-serif mb-4 leading-relaxed text-[#c49302] max-w-2xl mx-auto px-4"
+				className="text-lg md:text-3xl font-serif mb-4 leading-relaxed text-[#2E6D8A] max-w-2xl mx-auto px-4"
 				initial={{opacity: 0, y: 20}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 1}}
@@ -78,7 +84,7 @@ const PassesSection: React.FC = () => {
 
 			{/* 💌 Subtexto */}
 			<motion.p
-				className="mt-8 text-sm md:text-base text-[#a78e3f] italic font-semibold"
+				className="mt-8 text-sm md:text-base text-[#2E6D8A] italic font-semibold"
 				initial={{opacity: 0, y: 15}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 1, delay: 0.4}}
@@ -89,14 +95,14 @@ const PassesSection: React.FC = () => {
 
 			{/* 🎟 Pase animado dinámico */}
 			<motion.div
-				className="mt-10 inline-block bg-[#F8F6F2]/10 border border-[#F6E8D8]/30 rounded-2xl px-8 py-4 backdrop-blur-sm shadow-md"
+				className="mt-10 inline-block bg-white/20 border border-white/40 rounded-2xl px-8 py-4 backdrop-blur-sm shadow-md"
 				initial={{opacity: 0, scale: 0.9, y: 20}}
 				whileInView={{opacity: 1, scale: 1, y: 0}}
 				transition={{duration: 1.2, delay: 0.5}}
 				viewport={{once: false}}
 			>
-				<p className="uppercase tracking-[0.15em] text-sm md:text-base text-[#FDF8F3] font-medium">
-					Pase para <span className="text-[#7d7457] font-bold">{paseText}</span>
+				<p className="uppercase tracking-[0.15em] text-sm md:text-base text-white font-medium">
+					Pase para <span className="text-[#2E6D8A] font-bold">{paseText}</span>
 				</p>
 			</motion.div>
 		</section>

@@ -4,7 +4,7 @@ import pajaritos from "/pajaritos.mp4";
 
 const WeddingInvitation: React.FC = () => {
 	return (
-		<section className="relative w-full min-h-[72vh] flex flex-col items-center justify-center py-12 px-4 bg-gradient-to-b from-white to-[#FAF8F6]">
+		<section className="relative w-full min-h-[72vh] flex flex-col items-center justify-center py-12 px-4 bg-gradient-to-b from-[#F0F8FD] to-[#EEF7FB]">
 			{/* 📸 Video con efecto de papel rasgado */}
 			<motion.div
 				className="relative w-full max-w-md md:max-w-3xl lg:max-w-4xl"
@@ -64,20 +64,20 @@ const WeddingInvitation: React.FC = () => {
 					className="flex flex-col items-center"
 					style={{fontFamily: "'Caveat', cursive"}}
 				>
-					<h2 className="text-[#7A695D] text-4xl sm:text-6xl md:text-6xl font-medium">
+					<h2 className="text-[#2E6D8A] text-4xl sm:text-6xl md:text-6xl font-medium">
 						Diego
 					</h2>
-					<span className="text-[#A38B6F] text-3xl sm:text-4xl md:text-5xl -my-2">
+					<span className="text-[#6BAFC9] text-3xl sm:text-4xl md:text-5xl -my-2">
 						&
 					</span>
-					<h2 className="text-[#7A695D] text-4xl sm:text-6xl md:text-6xl font-bold">
+					<h2 className="text-[#2E6D8A] text-4xl sm:text-6xl md:text-6xl font-bold">
 						Kattherine
 					</h2>
 				</div>
 
 				{/* 🌷 Línea decorativa */}
 				<motion.div
-					className="mx-auto mt-3 w-32 h-[2px] bg-[#B5A894] rounded-full"
+					className="mx-auto mt-3 w-32 h-[2px] bg-[#8EC8E0] rounded-full"
 					initial={{width: 0, opacity: 0}}
 					animate={{width: 128, opacity: 1}}
 					transition={{duration: 1.5, delay: 1, ease: "easeOut"}}

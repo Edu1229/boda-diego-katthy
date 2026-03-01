@@ -9,7 +9,13 @@ const DressCode: React.FC = () => {
 	const florInferiorY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
 	return (
-		<section className="relative flex flex-col items-center text-center mb-8 py-16 px-6 bg-white overflow-visible">
+		<section
+			className="relative flex flex-col items-center text-center py-16 px-6 overflow-visible"
+			style={{
+				background:
+					"linear-gradient(160deg, #EEF7FB 0%, #F5FBFE 60%, #EBF4FA 100%)",
+			}}
+		>
 			{/* 🌸 Flor decorativa superior derecha */}
 			<motion.img
 				src={flor}
@@ -48,7 +54,7 @@ const DressCode: React.FC = () => {
 
 			{/* ✨ Título */}
 			<motion.h4
-				className="font-serif uppercase tracking-widest text-[#725E50] mb-2"
+				className="font-serif uppercase tracking-widest text-[#2E6D8A] mb-2"
 				initial={{opacity: 0, y: 15}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 0.8, delay: 0.2}}
@@ -59,7 +65,7 @@ const DressCode: React.FC = () => {
 
 			{/* 💫 Subtítulo */}
 			<motion.p
-				className="text-lg text-[#725E50] mb-8"
+				className="text-lg text-[#4A7A8F] mb-8"
 				initial={{opacity: 0, y: 10}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 0.8, delay: 0.3}}
@@ -70,25 +76,25 @@ const DressCode: React.FC = () => {
 
 			{/* 👗 Restricciones */}
 			<motion.div
-				className="max-w-sm bg-[#F8F5F2] rounded-2xl shadow-md p-6 border border-[#E3DCD3]"
+				className="max-w-sm bg-white/80 rounded-2xl shadow-md p-6 border border-[#B8DDEF]"
 				initial={{opacity: 0, scale: 0.9}}
 				whileInView={{opacity: 1, scale: 1}}
 				transition={{duration: 0.9, delay: 0.4, ease: "easeOut"}}
 				viewport={{once: false}}
 			>
-				<h5 className="font-serif uppercase text-[#725E50] tracking-wider mb-4">
+				<h5 className="font-serif uppercase text-[#2E6D8A] tracking-wider mb-4">
 					Por favor, evita usar:
 				</h5>
 
 				<div className="flex flex-col items-center gap-3">
-					<p className="text-[#725E50] text-base">
+					<p className="text-[#4A7A8F] text-base">
 						👗 <span className="font-medium">Mujeres:</span>{" "}
 						<span className="text-[#F25A8C] font-semibold">Fucsia</span> y{" "}
 						<span className="text-[#FF8C42] font-semibold">Naranja</span>
 					</p>
-					<p className="text-[#725E50] text-base">
+					<p className="text-[#4A7A8F] text-base">
 						🤵 <span className="font-medium">Hombres:</span>{" "}
-						<span className="text-[#3B6BA5] font-semibold">Azul</span>
+						<span className="text-[#3B6BA5] font-semibold">Azul marino</span>
 					</p>
 				</div>
 			</motion.div>

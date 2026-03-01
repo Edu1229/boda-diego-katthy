@@ -25,7 +25,7 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 	const isPhoneValid = useMemo(() => /^9\d{8}$/.test(celular), [celular]);
 	const isFormValid = useMemo(
 		() => nombre.trim().length >= 3 && isPhoneValid && !!asistencia,
-		[nombre, isPhoneValid, asistencia]
+		[nombre, isPhoneValid, asistencia],
 	);
 
 	const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +73,7 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 			setMensaje("");
 		} catch {
 			setErrorMsg(
-				"Ocurrió un error al enviar tu confirmación. Intenta de nuevo."
+				"Ocurrió un error al enviar tu confirmación. Intenta de nuevo.",
 			);
 		} finally {
 			setLoading(false);
@@ -87,7 +87,7 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 				animate={{opacity: 1, scale: 1, y: 0}}
 				exit={{opacity: 0, scale: 0.95, y: 30}}
 				transition={{duration: 0.4}}
-				className="bg-white rounded-3xl w-full max-w-lg text-[#7A695D] shadow-2xl overflow-hidden"
+				className="bg-white rounded-3xl w-full max-w-lg text-[#2E6D8A] shadow-2xl overflow-hidden"
 			>
 				{success ? (
 					<div className="p-10 text-center space-y-6">
@@ -99,15 +99,15 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 						>
 							🥂
 						</motion.div>
-						<h3 className="text-2xl font-serif text-[#7A695D]">
+						<h3 className="text-2xl font-serif text-[#2E6D8A]">
 							¡Gracias por confirmar tu asistencia!
 						</h3>
-						<p className="text-[#9B8C74] italic text-sm">
+						<p className="text-[#6BAFC9] italic text-sm">
 							Tu presencia hace más especial este día.
 						</p>
 						<button
 							onClick={onClose}
-							className="mt-4 px-6 py-2 rounded-full bg-[#AE7E68] text-white hover:bg-[#7A695D] transition-all duration-300"
+							className="mt-4 px-6 py-2 rounded-full bg-[#6BAFC9] text-white hover:bg-[#2E6D8A] transition-all duration-300"
 						>
 							Cerrar
 						</button>
@@ -116,13 +116,13 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 					<form onSubmit={handleSubmit} className="p-8 space-y-6 relative">
 						{/* Header */}
 						<div className="flex justify-between items-center mb-4">
-							<h2 className="text-2xl font-serif text-[#7A695D]">
+							<h2 className="text-2xl font-serif text-[#2E6D8A]">
 								Confirmar Asistencia
 							</h2>
 							<button
 								type="button"
 								onClick={onClose}
-								className="text-3xl leading-none text-[#7A695D] hover:text-[#AE7E68]"
+								className="text-3xl leading-none text-[#6BAFC9] hover:text-[#2E6D8A]"
 							>
 								×
 							</button>
@@ -145,12 +145,12 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 							<div className="relative">
 								<User
 									size={18}
-									className="absolute left-3 top-1/2 -translate-y-1/2 text-[#AE7E68]/70"
+									className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6BAFC9]/70"
 								/>
 								<input
 									type="text"
 									placeholder="Ej. Juan Pérez"
-									className="pl-10 pr-3 w-full h-11 rounded-lg border border-[#AE7E68]/40 focus:border-[#AE7E68] focus:ring-2 focus:ring-[#AE7E68]/20 outline-none transition-all duration-300"
+									className="pl-10 pr-3 w-full h-11 rounded-lg border border-[#6BAFC9]/40 focus:border-[#6BAFC9] focus:ring-2 focus:ring-[#6BAFC9]/20 outline-none transition-all duration-300"
 									value={nombre}
 									onChange={(e) => setNombre(e.target.value)}
 									required
@@ -164,7 +164,7 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 							<div className="relative">
 								<Phone
 									size={18}
-									className="absolute left-3 top-1/2 -translate-y-1/2 text-[#AE7E68]/70"
+									className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6BAFC9]/70"
 								/>
 								<input
 									type="tel"
@@ -172,9 +172,9 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 									maxLength={9}
 									className={`pl-10 pr-3 w-full h-11 rounded-lg border ${
 										isPhoneValid
-											? "border-[#AE7E68]/40 focus:ring-[#AE7E68]/20"
+											? "border-[#6BAFC9]/40 focus:ring-[#6BAFC9]/20"
 											: "border-red-300 focus:ring-red-200"
-									} focus:border-[#AE7E68] focus:ring-2 outline-none transition-all duration-300`}
+									} focus:border-[#6BAFC9] focus:ring-2 outline-none transition-all duration-300`}
 									value={celular}
 									onChange={handlePhoneChange}
 									required
@@ -193,7 +193,7 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 								¿Confirmas tu asistencia?
 							</label>
 							<select
-								className="w-full h-11 rounded-lg border border-[#AE7E68]/40 focus:border-[#AE7E68] focus:ring-2 focus:ring-[#AE7E68]/20 outline-none text-sm transition-all duration-300"
+								className="w-full h-11 rounded-lg border border-[#6BAFC9]/40 focus:border-[#6BAFC9] focus:ring-2 focus:ring-[#6BAFC9]/20 outline-none text-sm transition-all duration-300"
 								value={asistencia}
 								onChange={(e) => setAsistencia(e.target.value)}
 								required
@@ -213,7 +213,7 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 							</label>
 							<textarea
 								placeholder="Tu mensaje..."
-								className="p-3 w-full min-h-[90px] rounded-lg border border-[#AE7E68]/40 focus:border-[#AE7E68] focus:ring-2 focus:ring-[#AE7E68]/20 outline-none transition-all duration-300 resize-none"
+								className="p-3 w-full min-h-[90px] rounded-lg border border-[#6BAFC9]/40 focus:border-[#6BAFC9] focus:ring-2 focus:ring-[#6BAFC9]/20 outline-none transition-all duration-300 resize-none"
 								value={mensaje}
 								onChange={(e) => setMensaje(e.target.value)}
 							/>
@@ -238,7 +238,7 @@ const AttendanceModal: React.FC<Props> = ({onClose}) => {
 							whileHover={{scale: 1.03}}
 							whileTap={{scale: 0.97}}
 							type="submit"
-							className="w-full h-12 mt-2 rounded-full bg-[#AE7E68] text-white font-medium shadow-md hover:bg-[#7A695D] transition-all duration-300 disabled:opacity-60"
+							className="w-full h-12 mt-2 rounded-full bg-[#6BAFC9] text-white font-medium shadow-md hover:bg-[#2E6D8A] transition-all duration-300 disabled:opacity-60"
 							disabled={loading || !isFormValid}
 						>
 							{loading ? "Enviando..." : "Enviar Confirmación 💌"}

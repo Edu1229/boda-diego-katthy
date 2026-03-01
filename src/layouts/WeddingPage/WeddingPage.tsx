@@ -51,7 +51,10 @@ const WeddingPage: React.FC = () => {
 						animate={{opacity: 1, scale: 1, y: 0}}
 						exit={{opacity: 0}}
 						transition={{duration: 1.2, ease: "easeOut"}}
-						className="w-full bg-white p-0 m-0"
+						className="w-full p-0 m-0"
+						style={{
+							background: "linear-gradient(180deg, #EEF7FB 0%, #F5FBFE 100%)",
+						}}
 					>
 						{/* ✨ Contenido de la invitación */}
 						<WeddingInvitation />

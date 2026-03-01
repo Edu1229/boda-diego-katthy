@@ -2,98 +2,162 @@ import React from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
 import flor from "../../assets/img/image.png";
 
+/* ── Paleta celeste pastel ──────────────────────────────────
+   bg sección : #EEF7FB  (celeste muy suave)
+   borde card : #B8DDEF
+   acento     : #6BAFC9  (celeste medio)
+   texto title: #2E6D8A
+   texto body : #4A7A8F
+   ornamento  : #8EC8E0
+──────────────────────────────────────────────────────────── */
+
+interface NameCardProps {
+	names: string[];
+	delay?: number;
+}
+
+const NameCard: React.FC<NameCardProps> = ({names, delay = 0}) => (
+	<motion.div
+		className="bg-white/80 backdrop-blur-sm border border-[#B8DDEF] rounded-2xl px-7 py-5 shadow-sm w-full max-w-xs text-center space-y-1"
+		initial={{opacity: 0, y: 16}}
+		whileInView={{opacity: 1, y: 0}}
+		transition={{duration: 0.7, delay}}
+		viewport={{once: false, amount: 0.2}}
+	>
+		{names.map((name, i) => (
+			<p
+				key={i}
+				className="text-sm md:text-[15px] text-[#4A7A8F] leading-relaxed"
+			>
+				{name}
+			</p>
+		))}
+	</motion.div>
+);
+
 const SponsorsSection: React.FC = () => {
 	const {scrollYProgress} = useScroll();
-	const florSuperiorY = useTransform(scrollYProgress, [0, 1], [0, 60]);
-	const florInferiorY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+	const florTopY = useTransform(scrollYProgress, [0, 1], [0, 55]);
+	const florBotY = useTransform(scrollYProgress, [0, 1], [0, -55]);
 
 	return (
-		<section className="relative w-full text-center py-16 px-6 text-[#725E50] bg-white overflow-hidden">
-			{/* 🌸 Flor decorativa superior derecha */}
+		<section
+			className="relative w-full text-center py-20 px-6 overflow-hidden"
+			style={{
+				background:
+					"linear-gradient(160deg, #EEF7FB 0%, #F5FBFE 50%, #EBF4FA 100%)",
+			}}
+		>
+			{/* ── Flores decorativas ── */}
 			<motion.img
 				src={flor}
-				alt="Decoración floral"
-				style={{y: florSuperiorY}}
-				className="absolute top-0 right-0 w-44 sm:w-52 md:w-60 opacity-35 pointer-events-none select-none transform translate-x-6 -translate-y-4 rotate-[10deg]"
+				alt=""
+				style={{y: florTopY}}
+				className="absolute top-0 right-0 w-44 sm:w-56 opacity-25 pointer-events-none select-none translate-x-6 -translate-y-4 rotate-[10deg]"
 				initial={{opacity: 0}}
-				whileInView={{opacity: 0.35}}
+				whileInView={{opacity: 0.25}}
+				transition={{duration: 1.2}}
+				viewport={{once: false, amount: 0.2}}
+			/>
+			<motion.img
+				src={flor}
+				alt=""
+				style={{y: florBotY}}
+				className="absolute bottom-0 left-0 w-44 sm:w-56 opacity-20 pointer-events-none select-none -translate-x-8 translate-y-6 rotate-[200deg]"
+				initial={{opacity: 0}}
+				whileInView={{opacity: 0.2}}
 				transition={{duration: 1.2}}
 				viewport={{once: false, amount: 0.2}}
 			/>
 
-			{/* 🌸 Flor decorativa inferior izquierda */}
-			<motion.img
-				src={flor}
-				alt="Decoración floral"
-				style={{y: florInferiorY}}
-				className="absolute bottom-0 left-0 w-44 sm:w-52 md:w-60 opacity-70 pointer-events-none select-none transform -translate-x-8 translate-y-6 rotate-[200deg]"
-				initial={{opacity: 0}}
-				whileInView={{opacity: 0.35}}
-				transition={{duration: 1.2}}
-				viewport={{once: false, amount: 0.2}}
-			/>
-
-			{/* ✨ Título principal */}
-			<motion.h2
-				className="font-serif text-2xl md:text-3xl mb-6 text-[#7A695D]"
-				initial={{opacity: 0, y: 20, scale: 0.95}}
-				whileInView={{opacity: 1, y: 0, scale: 1}}
-				transition={{duration: 0.8, ease: "easeOut"}}
-				viewport={{once: false, amount: 0.2}}
-			>
-				Nuestros Padrinos
-			</motion.h2>
-
-			{/* 💞 Lista de padrinos */}
+			{/* ── Encabezado ── */}
 			<motion.div
-				className="text-sm md:text-base leading-relaxed mb-10"
+				className="relative z-10 mb-12"
 				initial={{opacity: 0, y: 20}}
 				whileInView={{opacity: 1, y: 0}}
-				transition={{duration: 0.9, delay: 0.2}}
+				transition={{duration: 0.8}}
 				viewport={{once: false, amount: 0.2}}
 			>
-				<p className="text-sm md:text-base">Cesar Ramos Ancajima</p>
-				<p className="text-sm md:text-base">Ingrid Navarro Flores</p>
-			</motion.div>
-
-			{/* 💍 Testigos de boda */}
-			<motion.div
-				className="flex flex-col items-center justify-center gap-3"
-				initial={{opacity: 0, y: 20}}
-				whileInView={{opacity: 1, y: 0}}
-				transition={{duration: 1, delay: 0.4}}
-				viewport={{once: false, amount: 0.2}}
-			>
-				<h3 className="uppercase font-serif text-lg tracking-widest text-[#A38B6F] mb-2">
-					Testigos de Boda
-				</h3>
-				<div className="text-sm md:text-base leading-relaxed text-gray-700">
-					<p>Juan Manuel Gamarra Cruz</p>
-					<p>Astrid Arixel Flores Peña</p>
-					<p>Daniel Valera Farfán</p>
-					<p>Marita García Delgado</p>
+				<p className="uppercase text-[10px] tracking-[0.3em] text-[#6BAFC9] mb-3">
+					Quienes hacen posible este día
+				</p>
+				<h2 className="font-[Playfair_Display] text-3xl md:text-4xl text-[#2E6D8A]">
+					Nuestros Padrinos
+				</h2>
+				{/* Ornamento */}
+				<div className="flex items-center justify-center gap-3 mt-4">
+					<div className="h-px w-10 bg-[#8EC8E0]" />
+					<span className="text-[#8EC8E0] text-xs">✦</span>
+					<div className="h-px w-10 bg-[#8EC8E0]" />
 				</div>
 			</motion.div>
 
-			{/* 🌿 Línea separadora */}
-			<motion.div
-				className="mx-auto w-24 h-[1px] bg-[#C7B299] my-10"
-				initial={{width: 0, opacity: 0}}
-				whileInView={{width: 96, opacity: 1}}
-				transition={{duration: 1, delay: 0.8}}
-				viewport={{once: false, amount: 0.2}}
-			/>
+			{/* ── Tarjeta de padrinos ── */}
+			<div className="relative z-10 flex flex-col items-center gap-4 mb-12">
+				<NameCard
+					names={["Cesar Ramos Ancajima", "Ingrid Navarro Flores"]}
+					delay={0.15}
+				/>
+			</div>
 
-			{/* 💬 Frase final */}
-			<motion.p
-				className="text-lg sm:text-xl font-cursive italic text-[#5B4A3A]"
-				initial={{opacity: 0, y: 15, scale: 0.98}}
-				whileInView={{opacity: 1, y: 0, scale: 1}}
-				transition={{duration: 1, delay: 1}}
+			{/* ── Separador con ícono ── */}
+			<motion.div
+				className="relative z-10 flex items-center justify-center gap-3 mb-12"
+				initial={{opacity: 0, scaleX: 0.6}}
+				whileInView={{opacity: 1, scaleX: 1}}
+				transition={{duration: 0.9, delay: 0.3}}
 				viewport={{once: false, amount: 0.2}}
 			>
-				Nos gustaría que seas parte de este día especial
-			</motion.p>
+				<div className="h-px w-12 bg-[#8EC8E0]" />
+				<span className="text-[#6BAFC9] text-base">💍</span>
+				<div className="h-px w-12 bg-[#8EC8E0]" />
+			</motion.div>
+
+			{/* ── Testigos de boda ── */}
+			<motion.div
+				className="relative z-10 flex flex-col items-center gap-5"
+				initial={{opacity: 0, y: 20}}
+				whileInView={{opacity: 1, y: 0}}
+				transition={{duration: 0.9, delay: 0.35}}
+				viewport={{once: false, amount: 0.2}}
+			>
+				{/* Label testigos */}
+				<div className="text-center">
+					<p className="uppercase text-[10px] tracking-[0.28em] text-[#6BAFC9] mb-1">
+						Nuestros
+					</p>
+					<h3 className="font-[Playfair_Display] text-2xl md:text-3xl text-[#2E6D8A]">
+						Testigos de Boda
+					</h3>
+				</div>
+
+				{/* Tarjeta testigos */}
+				<NameCard
+					names={["Daleska Rivera Alamo", "Jordi Elera Erazo"]}
+					delay={0.45}
+				/>
+			</motion.div>
+
+			{/* ── Separador final + frase ── */}
+			<motion.div
+				className="relative z-10 flex flex-col items-center gap-4 mt-12"
+				initial={{opacity: 0, y: 16}}
+				whileInView={{opacity: 1, y: 0}}
+				transition={{duration: 1, delay: 0.5}}
+				viewport={{once: false, amount: 0.2}}
+			>
+				<div className="flex items-center justify-center gap-3">
+					<div className="h-px w-14 bg-[#8EC8E0]" />
+					<span className="text-[#8EC8E0] text-sm">✦</span>
+					<div className="h-px w-14 bg-[#8EC8E0]" />
+				</div>
+				<p
+					className="text-lg sm:text-xl italic text-[#2E6D8A]/80"
+					style={{fontFamily: "'Dancing Script', cursive"}}
+				>
+					Nos gustaría que seas parte de este día especial
+				</p>
+			</motion.div>
 		</section>
 	);
 };

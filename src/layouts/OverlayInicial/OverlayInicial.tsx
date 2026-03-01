@@ -16,9 +16,9 @@ const OverlayInicial: React.FC<Props> = ({onEnter, audioRef}) => {
 	};
 
 	return (
-		<div className="fixed inset-0 flex items-center justify-center bg-[#EEECEA] z-[100]">
+		<div className="fixed inset-0 flex items-center justify-center bg-[#E4F3FA] z-[100]">
 			{/* 📜 Marco tipo tarjeta */}
-			<div className="relative w-full h-full flex items-center justify-center sm:w-[480px] sm:h-[720px] bg-[#EEECEA] shadow-lg overflow-hidden rounded-none sm:rounded-[24px]">
+			<div className="relative w-full h-full flex items-center justify-center sm:w-[480px] sm:h-[720px] bg-[#E4F3FA] shadow-lg overflow-hidden rounded-none sm:rounded-[24px]">
 				{/* 🎀 Imagen principal (moño e iniciales) */}
 				<img
 					src={fondo}
@@ -59,13 +59,13 @@ const OverlayInicial: React.FC<Props> = ({onEnter, audioRef}) => {
 					whileTap={{scale: 0.95}}
 					className="
 						relative z-10
-						bg-[#A38B6F]
+						bg-[#6BAFC9]
 						text-white 
 						px-8 py-3 
 						rounded-full 
 						font-medium tracking-wide
 						shadow-md 
-						hover:bg-[#8F7A62]
+						hover:bg-[#2E6D8A]
 						transition
 					"
 					style={{

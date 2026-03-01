@@ -12,7 +12,13 @@ const GiftsAndConfirmation: React.FC = () => {
 	const florInferiorY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
 	return (
-		<section className="relative w-full flex flex-col items-center text-center px-6 py-20 bg-white overflow-visible">
+		<section
+			className="relative w-full flex flex-col items-center text-center px-6 py-20 overflow-visible"
+			style={{
+				background:
+					"linear-gradient(160deg, #F0F8FD 0%, #F7FBFE 60%, #EBF4FA 100%)",
+			}}
+		>
 			{/* 🌸 Flor decorativa superior derecha */}
 			<motion.img
 				src={flor}
@@ -45,11 +51,11 @@ const GiftsAndConfirmation: React.FC = () => {
 				viewport={{once: false}}
 				className="flex flex-col items-center justify-center"
 			>
-				<Gift size={38} strokeWidth={1.8} className="text-[#A38B6F] mb-3" />
-				<h3 className="font-serif uppercase text-[#7A695D] tracking-widest text-lg mb-4">
+				<Gift size={38} strokeWidth={1.8} className="text-[#6BAFC9] mb-3" />
+				<h3 className="font-serif uppercase text-[#2E6D8A] tracking-widest text-lg mb-4">
 					Sugerencia de Regalos
 				</h3>
-				<p className="text-[#725E50] max-w-md leading-relaxed mb-6">
+				<p className="text-[#4A7A8F] max-w-md leading-relaxed mb-6">
 					El mejor regalo es tu presencia, pero si deseas tener un detalle con
 					nosotros, elige una opción:
 				</p>
@@ -69,16 +75,14 @@ const GiftsAndConfirmation: React.FC = () => {
 					whileTap={{scale: 0.95}}
 					className={`w-48 py-3 rounded-full font-medium flex items-center justify-center gap-2 shadow-md transition-all duration-300 ${
 						option === "fisico"
-							? "bg-[#9B8C74] text-white scale-105 shadow-lg shadow-[#9B8C74]/30"
-							: "bg-white text-[#725E50] border border-[#C7B299] hover:bg-[#F8F6F2] hover:shadow-md"
+							? "bg-[#6BAFC9] text-white scale-105 shadow-lg shadow-[#6BAFC9]/30"
+							: "bg-white text-[#2E6D8A] border border-[#B8DDEF] hover:bg-[#EEF7FB] hover:shadow-md"
 					}`}
 				>
 					<MapPin
 						size={20}
 						strokeWidth={2}
-						className={`${
-							option === "fisico" ? "text-white" : "text-[#9B8C74]"
-						}`}
+						className={`${option === "fisico" ? "text-white" : "text-[#6BAFC9]"}`}
 					/>
 					<span>Regalo físico</span>
 				</motion.button>
@@ -89,16 +93,14 @@ const GiftsAndConfirmation: React.FC = () => {
 					whileTap={{scale: 0.95}}
 					className={`w-48 py-3 rounded-full font-medium flex items-center justify-center gap-2 shadow-md transition-all duration-300 ${
 						option === "virtual"
-							? "bg-[#9B8C74] text-white scale-105 shadow-lg shadow-[#9B8C74]/30"
-							: "bg-white text-[#725E50] border border-[#C7B299] hover:bg-[#F8F6F2] hover:shadow-md"
+							? "bg-[#6BAFC9] text-white scale-105 shadow-lg shadow-[#6BAFC9]/30"
+							: "bg-white text-[#2E6D8A] border border-[#B8DDEF] hover:bg-[#EEF7FB] hover:shadow-md"
 					}`}
 				>
 					<Heart
 						size={20}
 						strokeWidth={2}
-						className={`${
-							option === "virtual" ? "text-white" : "text-[#9B8C74]"
-						}`}
+						className={`${option === "virtual" ? "text-white" : "text-[#6BAFC9]"}`}
 					/>
 					<span>Plin / Virtual</span>
 				</motion.button>
@@ -113,12 +115,12 @@ const GiftsAndConfirmation: React.FC = () => {
 						animate={{opacity: 1, y: 0}}
 						exit={{opacity: 0, y: -20}}
 						transition={{duration: 0.5}}
-						className="border border-[#A38B6F]/40 bg-[#FAF9F7] rounded-2xl shadow-sm p-5 max-w-sm mx-auto"
+						className="border border-[#B8DDEF] bg-[#F0F8FD] rounded-2xl shadow-sm p-5 max-w-sm mx-auto"
 					>
-						<h4 className="font-serif uppercase text-[#7A695D] tracking-wide text-lg mb-2">
+						<h4 className="font-serif uppercase text-[#2E6D8A] tracking-wide text-lg mb-2">
 							Lugar de entrega
 						</h4>
-						<p className="text-[#725E50] leading-relaxed">
+						<p className="text-[#4A7A8F] leading-relaxed">
 							Calle Andrés Garrido 470 <br /> El Obrero
 						</p>
 						<p className="mt-3 text-sm italic text-gray-600">
@@ -134,15 +136,15 @@ const GiftsAndConfirmation: React.FC = () => {
 						animate={{opacity: 1, y: 0}}
 						exit={{opacity: 0, y: -20}}
 						transition={{duration: 0.5}}
-						className="border border-[#A38B6F]/40 bg-[#FAF9F7] rounded-2xl shadow-sm p-5 max-w-sm mx-auto"
+						className="border border-[#B8DDEF] bg-[#F0F8FD] rounded-2xl shadow-sm p-5 max-w-sm mx-auto"
 					>
-						<h4 className="font-serif uppercase text-[#7A695D] tracking-wide text-lg mb-2">
+						<h4 className="font-serif uppercase text-[#2E6D8A] tracking-wide text-lg mb-2">
 							Transferencia o Plin
 						</h4>
-						<p className="text-[#725E50]">
+						<p className="text-[#4A7A8F]">
 							Número: <span className="font-semibold">998 599 413</span>
 						</p>
-						<p className="text-[#725E50] mt-1">Titular: Javier & Jema</p>
+						<p className="text-[#4A7A8F] mt-1">Titular: Javier &amp; Jema</p>
 						<p className="mt-3 text-sm italic text-gray-600">
 							Por favor, coordinar con los novios vía WhatsApp 💞
 						</p>
@@ -152,7 +154,7 @@ const GiftsAndConfirmation: React.FC = () => {
 
 			{/* ✨ Línea separadora */}
 			<motion.div
-				className="w-24 h-px bg-[#C7B299] my-10"
+				className="w-24 h-px bg-[#8EC8E0] my-10"
 				initial={{width: 0, opacity: 0}}
 				whileInView={{width: 96, opacity: 1}}
 				transition={{duration: 1, delay: 0.4}}
@@ -167,20 +169,20 @@ const GiftsAndConfirmation: React.FC = () => {
 				viewport={{once: false}}
 				className="flex flex-col items-center justify-center"
 			>
-				<Phone size={36} strokeWidth={1.8} className="text-[#A38B6F] mb-3" />
-				<h3 className="font-serif uppercase text-[#7A695D] tracking-widest text-lg mb-3">
+				<Phone size={36} strokeWidth={1.8} className="text-[#6BAFC9] mb-3" />
+				<h3 className="font-serif uppercase text-[#2E6D8A] tracking-widest text-lg mb-3">
 					Confirmar Asistencia
 				</h3>
-				<p className="text-[#725E50] text-base mb-6">
+				<p className="text-[#4A7A8F] text-base mb-6">
 					Agradecemos que confirmes tu asistencia antes del{" "}
-					<span className="font-semibold text-[#A38B6F]">20 de Noviembre</span>.
+					<span className="font-semibold text-[#6BAFC9]">20 de Noviembre</span>.
 				</p>
 
 				<motion.button
 					onClick={() => setShowModal(true)}
 					whileHover={{scale: 1.05}}
 					whileTap={{scale: 0.95}}
-					className="w-52 py-3 rounded-full font-semibold text-white bg-[#9B8C74] shadow-md hover:bg-[#7A695D] transition-all shadow-[#9B8C74]/20"
+					className="w-52 py-3 rounded-full font-semibold text-white bg-[#6BAFC9] shadow-md hover:bg-[#2E6D8A] transition-all shadow-[#6BAFC9]/20"
 				>
 					💌 Confirmar Asistencia
 				</motion.button>

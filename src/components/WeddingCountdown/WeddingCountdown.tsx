@@ -53,10 +53,10 @@ const WeddingCountdown = () => {
 						animate={{scale: [1, 1.08, 1]}}
 						transition={{duration: 1.2, repeat: Infinity, delay: index * 0.2}}
 					>
-						<span className="text-5xl md:text-5xl text-[#7A695D] font-bold">
+						<span className="text-5xl md:text-5xl text-[#2E6D8A] font-bold">
 							{value}
 						</span>
-						<span className="text-sm md:text-2xl text-[#DBB1A7]">
+						<span className="text-sm md:text-2xl text-[#8EC8E0]">
 							{key === "days"
 								? "Días"
 								: key === "hours"

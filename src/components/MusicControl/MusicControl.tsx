@@ -19,7 +19,7 @@ const MusicControl: React.FC<{audioRef: React.RefObject<HTMLAudioElement>}> = ({
 	return (
 		<button
 			onClick={toggleMusic}
-			className="fixed bottom-6 right-6 bg-[#AE7E68] hover:bg-[#7A695D] text-white p-3 rounded-full shadow-lg transition-colors duration-300 z-50"
+			className="fixed bottom-6 right-6 bg-[#6BAFC9] hover:bg-[#2E6D8A] text-white p-3 rounded-full shadow-lg transition-colors duration-300 z-50"
 			aria-label="Control de música"
 		>
 			{playing ? <FaPause /> : <FaMusic />}

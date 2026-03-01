@@ -6,7 +6,7 @@ const ConfirmAttendanceSection: React.FC = () => {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
-		<section className="text-center py-12 px-6 bg-[#725E50] text-white relative overflow-hidden">
+		<section className="text-center py-12 px-6 bg-[#2E6D8A] text-white relative overflow-hidden">
 			<motion.div
 				initial={{opacity: 0, y: 30}}
 				whileInView={{opacity: 1, y: 0}}
@@ -18,7 +18,7 @@ const ConfirmAttendanceSection: React.FC = () => {
 				</p>
 				<button
 					onClick={() => setShowModal(true)}
-					className="mt-4 bg-[#AE7E68] hover:bg-[#7A695D] transition-colors duration-300 text-white px-8 py-3 rounded-full font-semibold shadow-md"
+					className="mt-4 bg-[#6BAFC9] hover:bg-[#2E6D8A] transition-colors duration-300 text-white px-8 py-3 rounded-full font-semibold shadow-md"
 				>
 					Confirmar Asistencia
 				</button>

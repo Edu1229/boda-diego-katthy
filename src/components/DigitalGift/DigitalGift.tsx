@@ -2,7 +2,7 @@ import React from "react";
 
 const DigitalGift: React.FC = () => {
 	return (
-		<section className="bg-[#725E50] text-white py-12 px-6 text-center relative rounded-t-[60px] rounded-b-[60px] mx-4 shadow-lg">
+		<section className="bg-[#2E6D8A] text-white py-12 px-6 text-center relative rounded-t-[60px] rounded-b-[60px] mx-4 shadow-lg">
 			<p className="max-w-xl mx-auto mb-6 text-lg">
 				Su presencia y sus buenos deseos son nuestro mejor regalo. Si desean
 				hacernos llegar algún presente estaremos muy agradecidos.

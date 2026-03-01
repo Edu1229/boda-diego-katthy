@@ -9,7 +9,13 @@ const EventLocations: React.FC = () => {
 	const florInferiorY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
 	return (
-		<section className="relative w-full flex flex-col items-center justify-center text-center px-6 py-20 bg-white overflow-visible mb-8">
+		<section
+			className="relative w-full flex flex-col items-center justify-center text-center px-6 py-20 overflow-visible"
+			style={{
+				background:
+					"linear-gradient(160deg, #F0F8FD 0%, #F7FBFE 60%, #EBF4FA 100%)",
+			}}
+		>
 			{/* 🌸 Flor superior derecha con movimiento sutil */}
 			<motion.img
 				src={flor}
@@ -42,15 +48,15 @@ const EventLocations: React.FC = () => {
 				transition={{duration: 1}}
 				viewport={{once: false, amount: 0.3}}
 			>
-				<Church size={42} className="mx-auto text-[#A38B6F] mb-4" />
-				<p className="text-[#7A695D] font-serif text-lg mb-1">11:00 HRS.</p>
-				<h3 className="uppercase text-[#7A695D] font-semibold tracking-wide text-lg">
-					Ceremonia
+				<Church size={42} className="mx-auto text-[#6BAFC9] mb-4" />
+				<p className="text-[#2E6D8A] font-serif text-lg mb-1">11:00 HRS.</p>
+				<h3 className="uppercase text-[#2E6D8A] font-semibold tracking-wide text-lg">
+					Ceremonía
 				</h3>
-				<p className="text-gray-600 mt-1 leading-relaxed">
+				<p className="text-[#4A7A8F] mt-1 leading-relaxed">
 					Parroquia Nuestra Señora del Tránsito
 					<br />
-					<span className="italic text-sm text-gray-500">
+					<span className="italic text-sm text-[#6BAFC9]">
 						Trans. Piura con C. 6
 					</span>
 				</p>
@@ -59,7 +65,7 @@ const EventLocations: React.FC = () => {
 					target="_blank"
 					whileHover={{scale: 1.07}}
 					whileTap={{scale: 0.95}}
-					className="inline-flex items-center justify-center gap-2 bg-[#9B8C74] text-white px-6 py-2 rounded-full mt-4 shadow-sm hover:bg-[#7A695D] transition-all"
+					className="inline-flex items-center justify-center gap-2 bg-[#6BAFC9] text-white px-6 py-2 rounded-full mt-4 shadow-sm hover:bg-[#2E6D8A] transition-all"
 				>
 					<MapPin size={18} /> Ver ubicación
 				</motion.a>
@@ -67,7 +73,7 @@ const EventLocations: React.FC = () => {
 
 			{/* ✨ Separador animado */}
 			<motion.div
-				className="w-20 h-px bg-[#C7B299] my-8"
+				className="w-20 h-px bg-[#8EC8E0] my-8"
 				initial={{width: 0, opacity: 0}}
 				whileInView={{width: 80, opacity: 1}}
 				transition={{duration: 1}}
@@ -82,15 +88,15 @@ const EventLocations: React.FC = () => {
 				transition={{duration: 1, delay: 0.2}}
 				viewport={{once: false, amount: 0.3}}
 			>
-				<Martini size={42} className="mx-auto text-[#A38B6F] mb-4" />
-				<p className="text-[#7A695D] font-serif text-lg mb-1">13:00 HRS.</p>
-				<h3 className="uppercase text-[#7A695D] font-semibold tracking-wide text-lg">
+				<Martini size={42} className="mx-auto text-[#6BAFC9] mb-4" />
+				<p className="text-[#2E6D8A] font-serif text-lg mb-1">13:00 HRS.</p>
+				<h3 className="uppercase text-[#2E6D8A] font-semibold tracking-wide text-lg">
 					Recepción
 				</h3>
-				<p className="text-gray-600 mt-1 leading-relaxed">
+				<p className="text-[#4A7A8F] mt-1 leading-relaxed">
 					Los Cantaritos
 					<br />
-					<span className="italic text-sm text-gray-500">
+					<span className="italic text-sm text-[#6BAFC9]">
 						Calle Cola del Alacrán, cerca a Carretera Panamericana N
 					</span>
 				</p>
@@ -99,7 +105,7 @@ const EventLocations: React.FC = () => {
 					target="_blank"
 					whileHover={{scale: 1.07}}
 					whileTap={{scale: 0.95}}
-					className="inline-flex items-center justify-center gap-2 bg-[#9B8C74] text-white px-6 py-2 rounded-full mt-4 shadow-sm hover:bg-[#7A695D] transition-all"
+					className="inline-flex items-center justify-center gap-2 bg-[#6BAFC9] text-white px-6 py-2 rounded-full mt-4 shadow-sm hover:bg-[#2E6D8A] transition-all"
 				>
 					<MapPin size={18} /> Ver ubicación
 				</motion.a>
@@ -107,7 +113,7 @@ const EventLocations: React.FC = () => {
 
 			{/* ✨ Separador */}
 			<motion.div
-				className="w-20 h-px bg-[#C7B299] my-8"
+				className="w-20 h-px bg-[#8EC8E0] my-8"
 				initial={{width: 0, opacity: 0}}
 				whileInView={{width: 80, opacity: 1}}
 				transition={{duration: 1}}
@@ -121,10 +127,10 @@ const EventLocations: React.FC = () => {
 				transition={{duration: 1, delay: 0.4}}
 				viewport={{once: false}}
 			>
-				<p className="text-[#7A695D] italic font-marck-script text-3xl">
+				<p className="text-[#2E6D8A] italic font-marck-script text-3xl">
 					Con cariño,
 				</p>
-				<p className="text-[#9B8C74] font-marck-script text-4xl md:text-5xl -mt-2">
+				<p className="text-[#6BAFC9] font-marck-script text-4xl md:text-5xl -mt-2">
 					Javier & Jema
 				</p>
 			</motion.div>

@@ -5,7 +5,13 @@ import nokids from "../../assets/img/nokids.png";
 
 const NoKids: React.FC = () => {
 	return (
-		<section className="relative w-full flex flex-col items-center justify-center text-center px-6 py-12 bg-white overflow-hidden">
+		<section
+			className="relative w-full flex flex-col items-center justify-center text-center px-6 py-12 overflow-hidden"
+			style={{
+				background:
+					"linear-gradient(160deg, #EEF7FB 0%, #F5FBFE 60%, #EBF4FA 100%)",
+			}}
+		>
 			{/* 🌸 Flor decorativa superior izquierda */}
 			<img
 				src={flor}
@@ -33,7 +39,7 @@ const NoKids: React.FC = () => {
 
 			{/* ✨ Texto principal */}
 			<motion.h3
-				className="text-[#7A695D] uppercase font-serif tracking-widest text-lg mb-3"
+				className="text-[#2E6D8A] uppercase font-serif tracking-widest text-lg mb-3"
 				initial={{opacity: 0, y: 10}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 0.8, delay: 0.2}}
@@ -43,7 +49,7 @@ const NoKids: React.FC = () => {
 
 			{/* 💬 Mensaje amable */}
 			<motion.p
-				className="max-w-md text-[#725E50] text-base sm:text-lg leading-relaxed italic"
+				className="max-w-md text-[#4A7A8F] text-base sm:text-lg leading-relaxed italic"
 				initial={{opacity: 0, y: 20}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 0.9, delay: 0.3}}

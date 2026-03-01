@@ -18,20 +18,20 @@ const FamilyBlock: React.FC<FamilyBlockProps> = ({label, names, delay = 0}) => (
 		viewport={{once: false, amount: 0.2}}
 	>
 		{/* Etiqueta de categoría */}
-		<p className="uppercase text-[10px] tracking-[0.25em] text-[#A38B6F] mb-2 font-medium">
+		<p className="uppercase text-[10px] tracking-[0.25em] text-[#6BAFC9] mb-2 font-medium">
 			{label}
 		</p>
 		{/* Línea decorativa */}
 		<div className="flex items-center justify-center gap-2 mb-3">
-			<div className="h-px w-6 bg-[#C7B299]" />
-			<div className="w-1 h-1 rounded-full bg-[#C7B299]" />
-			<div className="h-px w-6 bg-[#C7B299]" />
+			<div className="h-px w-6 bg-[#8EC8E0]" />
+			<div className="w-1 h-1 rounded-full bg-[#8EC8E0]" />
+			<div className="h-px w-6 bg-[#8EC8E0]" />
 		</div>
 		<div className="space-y-1">
 			{names.map((name, i) => (
 				<p
 					key={i}
-					className="text-sm md:text-[15px] text-gray-600 leading-relaxed"
+					className="text-sm md:text-[15px] text-[#4A7A8F] leading-relaxed"
 				>
 					{name}
 				</p>
@@ -65,18 +65,18 @@ const FamilySide: React.FC<FamilySideProps> = ({
 	>
 		{/* Encabezado de familia */}
 		<div className="text-center">
-			<h2 className="font-[Playfair_Display] text-2xl md:text-3xl text-[#7A695D] leading-snug">
+			<h2 className="font-[Playfair_Display] text-2xl md:text-3xl text-[#2E6D8A] leading-snug">
 				{title}
 			</h2>
-			<p className="text-[11px] uppercase tracking-widest text-[#A38B6F] mt-1">
+			<p className="text-[11px] uppercase tracking-widest text-[#6BAFC9] mt-1">
 				{subtitle}
 			</p>
 		</div>
 
 		{/* Tarjeta interna */}
-		<div className="w-full max-w-xs border border-[#E3D5C6] rounded-2xl px-6 py-7 bg-white/80 backdrop-blur-sm shadow-sm space-y-6 text-center">
+		<div className="w-full max-w-xs border border-[#B8DDEF] rounded-2xl px-6 py-7 bg-white/80 backdrop-blur-sm shadow-sm space-y-6 text-center">
 			<FamilyBlock label="Padres" names={parents} delay={delayBase + 0.1} />
-			<div className="h-px w-full bg-[#EDE0D4]" />
+			<div className="h-px w-full bg-[#D6EEF8]" />
 			<FamilyBlock label="Hermanos" names={siblings} delay={delayBase + 0.2} />
 		</div>
 	</motion.div>
@@ -89,7 +89,13 @@ const ParentsSection: React.FC = () => {
 	const florBotY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
 	return (
-		<section className="relative z-10 text-center px-6 py-20 bg-[#FDFAF7] overflow-hidden">
+		<section
+			className="relative z-10 text-center px-6 py-20 overflow-hidden"
+			style={{
+				background:
+					"linear-gradient(160deg, #EEF7FB 0%, #F5FBFE 50%, #EBF4FA 100%)",
+			}}
+		>
 			{/* ── Flores decorativas ── */}
 			<motion.img
 				src={flor}
@@ -120,17 +126,17 @@ const ParentsSection: React.FC = () => {
 				transition={{duration: 0.8}}
 				viewport={{once: false, amount: 0.2}}
 			>
-				<p className="uppercase text-[10px] tracking-[0.3em] text-[#A38B6F] mb-3">
+				<p className="uppercase text-[10px] tracking-[0.3em] text-[#6BAFC9] mb-3">
 					Con el amor y bendición de
 				</p>
-				<h1 className="font-[Playfair_Display] text-3xl md:text-4xl text-[#7A695D]">
+				<h1 className="font-[Playfair_Display] text-3xl md:text-4xl text-[#2E6D8A]">
 					Nuestras Familias
 				</h1>
 				{/* Ornamento */}
 				<div className="flex items-center justify-center gap-3 mt-4">
-					<div className="h-px w-10 bg-[#C7B299]" />
-					<span className="text-[#C7B299] text-xs">✦</span>
-					<div className="h-px w-10 bg-[#C7B299]" />
+				<div className="h-px w-10 bg-[#8EC8E0]" />
+				<span className="text-[#8EC8E0] text-xs">✦</span>
+				<div className="h-px w-10 bg-[#8EC8E0]" />
 				</div>
 			</motion.div>
 
@@ -153,9 +159,9 @@ const ParentsSection: React.FC = () => {
 					transition={{duration: 0.8, delay: 0.3}}
 					viewport={{once: false, amount: 0.2}}
 				>
-					<div className="w-px h-12 bg-[#D9C9B8]" />
-					<span className="text-[#C7B299] text-xl">♡</span>
-					<div className="w-px h-12 bg-[#D9C9B8]" />
+				<div className="w-px h-12 bg-[#8EC8E0]" />
+				<span className="text-[#6BAFC9] text-xl">♡</span>
+				<div className="w-px h-12 bg-[#8EC8E0]" />
 				</motion.div>
 
 				{/* Novia */}
@@ -182,9 +188,9 @@ const ParentsSection: React.FC = () => {
 				transition={{duration: 1, delay: 0.4}}
 				viewport={{once: false, amount: 0.2}}
 			>
-				<div className="h-px w-14 bg-[#C7B299]" />
-				<span className="text-[#C7B299] text-sm">✦</span>
-				<div className="h-px w-14 bg-[#C7B299]" />
+				<div className="h-px w-14 bg-[#8EC8E0]" />
+				<span className="text-[#8EC8E0] text-sm">✦</span>
+				<div className="h-px w-14 bg-[#8EC8E0]" />
 			</motion.div>
 		</section>
 	);
