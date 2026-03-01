@@ -1,15 +1,15 @@
-import React from "react";
+﻿import React from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
-import flor from "../../assets/img/image.png";
+import flor from "../../assets/img/Flor-azul.png";
 
-/* ── Paleta celeste pastel ──────────────────────────────────
-   bg sección : #EEF7FB  (celeste muy suave)
+/* â”€â”€ Paleta celeste pastel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   bg secciÃ³n : #EEF7FB  (celeste muy suave)
    borde card : #B8DDEF
    acento     : #6BAFC9  (celeste medio)
    texto title: #2E6D8A
    texto body : #4A7A8F
    ornamento  : #8EC8E0
-──────────────────────────────────────────────────────────── */
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 interface NameCardProps {
 	names: string[];
@@ -48,11 +48,11 @@ const SponsorsSection: React.FC = () => {
 					"linear-gradient(160deg, #EEF7FB 0%, #F5FBFE 50%, #EBF4FA 100%)",
 			}}
 		>
-			{/* ── Flores decorativas ── */}
+			{/* â”€â”€ Flores decorativas â”€â”€ */}
 			<motion.img
 				src={flor}
 				alt=""
-				style={{y: florTopY}}
+				style={{y: florTopY, zIndex: 0}}
 				className="absolute top-0 right-0 w-44 sm:w-56 opacity-25 pointer-events-none select-none translate-x-6 -translate-y-4 rotate-[10deg]"
 				initial={{opacity: 0}}
 				whileInView={{opacity: 0.25}}
@@ -62,7 +62,7 @@ const SponsorsSection: React.FC = () => {
 			<motion.img
 				src={flor}
 				alt=""
-				style={{y: florBotY}}
+				style={{y: florBotY, zIndex: 0}}
 				className="absolute bottom-0 left-0 w-44 sm:w-56 opacity-20 pointer-events-none select-none -translate-x-8 translate-y-6 rotate-[200deg]"
 				initial={{opacity: 0}}
 				whileInView={{opacity: 0.2}}
@@ -70,7 +70,7 @@ const SponsorsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			/>
 
-			{/* ── Encabezado ── */}
+			{/* â”€â”€ Encabezado â”€â”€ */}
 			<motion.div
 				className="relative z-10 mb-12"
 				initial={{opacity: 0, y: 20}}
@@ -79,7 +79,7 @@ const SponsorsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			>
 				<p className="uppercase text-[10px] tracking-[0.3em] text-[#6BAFC9] mb-3">
-					Quienes hacen posible este día
+					Quienes hacen posible este dÃ­a
 				</p>
 				<h2 className="font-[Playfair_Display] text-3xl md:text-4xl text-[#2E6D8A]">
 					Nuestros Padrinos
@@ -87,12 +87,12 @@ const SponsorsSection: React.FC = () => {
 				{/* Ornamento */}
 				<div className="flex items-center justify-center gap-3 mt-4">
 					<div className="h-px w-10 bg-[#8EC8E0]" />
-					<span className="text-[#8EC8E0] text-xs">✦</span>
+					<span className="text-[#8EC8E0] text-xs">âœ¦</span>
 					<div className="h-px w-10 bg-[#8EC8E0]" />
 				</div>
 			</motion.div>
 
-			{/* ── Tarjeta de padrinos ── */}
+			{/* â”€â”€ Tarjeta de padrinos â”€â”€ */}
 			<div className="relative z-10 flex flex-col items-center gap-4 mb-12">
 				<NameCard
 					names={["Cesar Ramos Ancajima", "Ingrid Navarro Flores"]}
@@ -100,7 +100,7 @@ const SponsorsSection: React.FC = () => {
 				/>
 			</div>
 
-			{/* ── Separador con ícono ── */}
+			{/* â”€â”€ Separador con Ã­cono â”€â”€ */}
 			<motion.div
 				className="relative z-10 flex items-center justify-center gap-3 mb-12"
 				initial={{opacity: 0, scaleX: 0.6}}
@@ -109,11 +109,11 @@ const SponsorsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			>
 				<div className="h-px w-12 bg-[#8EC8E0]" />
-				<span className="text-[#6BAFC9] text-base">💍</span>
+				<span className="text-[#6BAFC9] text-base">ðŸ’</span>
 				<div className="h-px w-12 bg-[#8EC8E0]" />
 			</motion.div>
 
-			{/* ── Testigos de boda ── */}
+			{/* â”€â”€ Testigos de boda â”€â”€ */}
 			<motion.div
 				className="relative z-10 flex flex-col items-center gap-5"
 				initial={{opacity: 0, y: 20}}
@@ -138,7 +138,7 @@ const SponsorsSection: React.FC = () => {
 				/>
 			</motion.div>
 
-			{/* ── Separador final + frase ── */}
+			{/* â”€â”€ Separador final + frase â”€â”€ */}
 			<motion.div
 				className="relative z-10 flex flex-col items-center gap-4 mt-12"
 				initial={{opacity: 0, y: 16}}
@@ -148,14 +148,14 @@ const SponsorsSection: React.FC = () => {
 			>
 				<div className="flex items-center justify-center gap-3">
 					<div className="h-px w-14 bg-[#8EC8E0]" />
-					<span className="text-[#8EC8E0] text-sm">✦</span>
+					<span className="text-[#8EC8E0] text-sm">âœ¦</span>
 					<div className="h-px w-14 bg-[#8EC8E0]" />
 				</div>
 				<p
 					className="text-lg sm:text-xl italic text-[#2E6D8A]/80"
 					style={{fontFamily: "'Dancing Script', cursive"}}
 				>
-					Nos gustaría que seas parte de este día especial
+					Nos gustarÃ­a que seas parte de este dÃ­a especial
 				</p>
 			</motion.div>
 		</section>

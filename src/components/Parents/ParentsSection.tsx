@@ -1,8 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
-import flor from "../../assets/img/image.png";
+import flor from "../../assets/img/Flor-azul.png";
 
-/* ── Sub-componente: bloque de familia (padres o hermanos) ── */
+/* â”€â”€ Sub-componente: bloque de familia (padres o hermanos) â”€â”€ */
 interface FamilyBlockProps {
 	label: string;
 	names: string[];
@@ -17,11 +17,11 @@ const FamilyBlock: React.FC<FamilyBlockProps> = ({label, names, delay = 0}) => (
 		transition={{duration: 0.7, delay}}
 		viewport={{once: false, amount: 0.2}}
 	>
-		{/* Etiqueta de categoría */}
+		{/* Etiqueta de categorÃ­a */}
 		<p className="uppercase text-[10px] tracking-[0.25em] text-[#6BAFC9] mb-2 font-medium">
 			{label}
 		</p>
-		{/* Línea decorativa */}
+		{/* LÃ­nea decorativa */}
 		<div className="flex items-center justify-center gap-2 mb-3">
 			<div className="h-px w-6 bg-[#8EC8E0]" />
 			<div className="w-1 h-1 rounded-full bg-[#8EC8E0]" />
@@ -40,7 +40,7 @@ const FamilyBlock: React.FC<FamilyBlockProps> = ({label, names, delay = 0}) => (
 	</motion.div>
 );
 
-/* ── Sub-componente: columna completa de una familia ── */
+/* â”€â”€ Sub-componente: columna completa de una familia â”€â”€ */
 interface FamilySideProps {
 	title: string;
 	subtitle: string;
@@ -82,7 +82,7 @@ const FamilySide: React.FC<FamilySideProps> = ({
 	</motion.div>
 );
 
-/* ── Componente principal ── */
+/* â”€â”€ Componente principal â”€â”€ */
 const ParentsSection: React.FC = () => {
 	const {scrollYProgress} = useScroll();
 	const florTopY = useTransform(scrollYProgress, [0, 1], [0, 50]);
@@ -96,11 +96,11 @@ const ParentsSection: React.FC = () => {
 					"linear-gradient(160deg, #EEF7FB 0%, #F5FBFE 50%, #EBF4FA 100%)",
 			}}
 		>
-			{/* ── Flores decorativas ── */}
+			{/* â”€â”€ Flores decorativas â”€â”€ */}
 			<motion.img
 				src={flor}
 				alt=""
-				style={{y: florTopY}}
+				style={{y: florTopY, zIndex: 0}}
 				className="absolute top-0 right-0 w-44 sm:w-56 opacity-30 pointer-events-none select-none translate-x-6 -translate-y-4 rotate-[15deg]"
 				initial={{opacity: 0}}
 				whileInView={{opacity: 0.3}}
@@ -110,7 +110,7 @@ const ParentsSection: React.FC = () => {
 			<motion.img
 				src={flor}
 				alt=""
-				style={{y: florBotY}}
+				style={{y: florBotY, zIndex: 0}}
 				className="absolute bottom-0 left-0 w-44 sm:w-56 opacity-25 pointer-events-none select-none -translate-x-8 translate-y-4 rotate-[200deg]"
 				initial={{opacity: 0}}
 				whileInView={{opacity: 0.25}}
@@ -118,7 +118,7 @@ const ParentsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			/>
 
-			{/* ── Encabezado de sección ── */}
+			{/* â”€â”€ Encabezado de secciÃ³n â”€â”€ */}
 			<motion.div
 				className="relative z-10 mb-12"
 				initial={{opacity: 0, y: 20}}
@@ -127,7 +127,7 @@ const ParentsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			>
 				<p className="uppercase text-[10px] tracking-[0.3em] text-[#6BAFC9] mb-3">
-					Con el amor y bendición de
+					Con el amor y bendiciÃ³n de
 				</p>
 				<h1 className="font-[Playfair_Display] text-3xl md:text-4xl text-[#2E6D8A]">
 					Nuestras Familias
@@ -135,12 +135,12 @@ const ParentsSection: React.FC = () => {
 				{/* Ornamento */}
 				<div className="flex items-center justify-center gap-3 mt-4">
 				<div className="h-px w-10 bg-[#8EC8E0]" />
-				<span className="text-[#8EC8E0] text-xs">✦</span>
+				<span className="text-[#8EC8E0] text-xs">âœ¦</span>
 				<div className="h-px w-10 bg-[#8EC8E0]" />
 				</div>
 			</motion.div>
 
-			{/* ── Columnas de familia ── */}
+			{/* â”€â”€ Columnas de familia â”€â”€ */}
 			<div className="relative z-10 flex flex-col sm:flex-row items-start justify-center gap-8 md:gap-14">
 				{/* Novio */}
 				<FamilySide
@@ -160,7 +160,7 @@ const ParentsSection: React.FC = () => {
 					viewport={{once: false, amount: 0.2}}
 				>
 				<div className="w-px h-12 bg-[#8EC8E0]" />
-				<span className="text-[#6BAFC9] text-xl">♡</span>
+				<span className="text-[#6BAFC9] text-xl">â™¡</span>
 				<div className="w-px h-12 bg-[#8EC8E0]" />
 				</motion.div>
 
@@ -180,7 +180,7 @@ const ParentsSection: React.FC = () => {
 				/>
 			</div>
 
-			{/* ── Línea separadora inferior ── */}
+			{/* â”€â”€ LÃ­nea separadora inferior â”€â”€ */}
 			<motion.div
 				className="flex items-center justify-center gap-3 mt-14"
 				initial={{opacity: 0}}
@@ -189,7 +189,7 @@ const ParentsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			>
 				<div className="h-px w-14 bg-[#8EC8E0]" />
-				<span className="text-[#8EC8E0] text-sm">✦</span>
+				<span className="text-[#8EC8E0] text-sm">âœ¦</span>
 				<div className="h-px w-14 bg-[#8EC8E0]" />
 			</motion.div>
 		</section>

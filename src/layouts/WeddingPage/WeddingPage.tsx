@@ -12,7 +12,6 @@ import OverlayInicial from "../OverlayInicial/OverlayInicial";
 import LoveWedding from "../../components/loveWedding/loveWedding";
 import UsSection from "../../components/UsSection/UsSection";
 import GiftsAndConfirmation from "../../components/GiftsAndConfirmation/GiftsAndConfirmation";
-import NoKids from "../../components/NoKids/NoKids";
 import PassesSection from "../../components/Passes/PassesSection";
 
 const WeddingPage: React.FC = () => {
@@ -67,7 +66,6 @@ const WeddingPage: React.FC = () => {
 						<EventLocations />
 						<DressCode />
 						<GiftsAndConfirmation />
-						<NoKids />
 						<UsSection />
 						<MusicControl audioRef={audioRef} />
 					</motion.div>

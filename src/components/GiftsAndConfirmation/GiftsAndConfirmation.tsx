@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+﻿import React, {useState} from "react";
 import {motion, useScroll, useTransform, AnimatePresence} from "framer-motion";
 import {Gift, MapPin, Heart, Phone} from "lucide-react";
-import flor from "../../assets/img/image.png";
+import flor from "../../assets/img/Flor-azul.png";
 import AttendanceModal from "../AttendanceModal/AttendanceModal";
 
 const GiftsAndConfirmation: React.FC = () => {
@@ -19,11 +19,11 @@ const GiftsAndConfirmation: React.FC = () => {
 					"linear-gradient(160deg, #F0F8FD 0%, #F7FBFE 60%, #EBF4FA 100%)",
 			}}
 		>
-			{/* 🌸 Flor decorativa superior derecha */}
+			{/* ðŸŒ¸ Flor decorativa superior derecha */}
 			<motion.img
 				src={flor}
-				alt="Decoración floral"
-				style={{y: florSuperiorY}}
+				alt="DecoraciÃ³n floral"
+				style={{y: florSuperiorY, zIndex: 0}}
 				className="absolute top-0 right-0 w-44 sm:w-52 md:w-60 opacity-30 pointer-events-none select-none transform translate-x-8 -translate-y-4 rotate-[10deg]"
 				initial={{opacity: 0}}
 				whileInView={{opacity: 0.3}}
@@ -31,11 +31,11 @@ const GiftsAndConfirmation: React.FC = () => {
 				viewport={{once: false}}
 			/>
 
-			{/* 🌸 Flor decorativa inferior izquierda */}
+			{/* ðŸŒ¸ Flor decorativa inferior izquierda */}
 			<motion.img
 				src={flor}
-				alt="Decoración floral"
-				style={{y: florInferiorY}}
+				alt="DecoraciÃ³n floral"
+				style={{y: florInferiorY, zIndex: 0}}
 				className="absolute bottom-0 left-0 w-44 sm:w-52 md:w-60 opacity-25 pointer-events-none select-none transform -translate-x-8 translate-y-6 rotate-[200deg]"
 				initial={{opacity: 0}}
 				whileInView={{opacity: 0.25}}
@@ -43,7 +43,7 @@ const GiftsAndConfirmation: React.FC = () => {
 				viewport={{once: false}}
 			/>
 
-			{/* 🎁 Sugerencia de Regalos */}
+			{/* ðŸŽ Sugerencia de Regalos */}
 			<motion.div
 				initial={{opacity: 0, y: 20}}
 				whileInView={{opacity: 1, y: 0}}
@@ -57,11 +57,11 @@ const GiftsAndConfirmation: React.FC = () => {
 				</h3>
 				<p className="text-[#4A7A8F] max-w-md leading-relaxed mb-6">
 					El mejor regalo es tu presencia, pero si deseas tener un detalle con
-					nosotros, elige una opción:
+					nosotros, elige una opciÃ³n:
 				</p>
 			</motion.div>
 
-			{/* 💌 Botones de selección */}
+			{/* ðŸ’Œ Botones de selecciÃ³n */}
 			<motion.div
 				className="flex flex-col sm:flex-row gap-4 mb-8 mt-4"
 				initial={{opacity: 0, y: 20}}
@@ -84,7 +84,7 @@ const GiftsAndConfirmation: React.FC = () => {
 						strokeWidth={2}
 						className={`${option === "fisico" ? "text-white" : "text-[#6BAFC9]"}`}
 					/>
-					<span>Regalo físico</span>
+					<span>Regalo fÃ­sico</span>
 				</motion.button>
 
 				<motion.button
@@ -106,7 +106,7 @@ const GiftsAndConfirmation: React.FC = () => {
 				</motion.button>
 			</motion.div>
 
-			{/* 💬 Mensajes dinámicos */}
+			{/* ðŸ’¬ Mensajes dinÃ¡micos */}
 			<AnimatePresence mode="wait">
 				{option === "fisico" && (
 					<motion.div
@@ -121,10 +121,10 @@ const GiftsAndConfirmation: React.FC = () => {
 							Lugar de entrega
 						</h4>
 						<p className="text-[#4A7A8F] leading-relaxed">
-							Calle Andrés Garrido 470 <br /> El Obrero
+							Calle AndrÃ©s Garrido 470 <br /> El Obrero
 						</p>
 						<p className="mt-3 text-sm italic text-gray-600">
-							Puedes dejar tu obsequio en este domicilio. 💐
+							Puedes dejar tu obsequio en este domicilio. ðŸ’
 						</p>
 					</motion.div>
 				)}
@@ -142,17 +142,17 @@ const GiftsAndConfirmation: React.FC = () => {
 							Transferencia o Plin
 						</h4>
 						<p className="text-[#4A7A8F]">
-							Número: <span className="font-semibold">998 599 413</span>
+							NÃºmero: <span className="font-semibold">998 599 413</span>
 						</p>
 						<p className="text-[#4A7A8F] mt-1">Titular: Javier &amp; Jema</p>
 						<p className="mt-3 text-sm italic text-gray-600">
-							Por favor, coordinar con los novios vía WhatsApp 💞
+							Por favor, coordinar con los novios vÃ­a WhatsApp ðŸ’ž
 						</p>
 					</motion.div>
 				)}
 			</AnimatePresence>
 
-			{/* ✨ Línea separadora */}
+			{/* âœ¨ LÃ­nea separadora */}
 			<motion.div
 				className="w-24 h-px bg-[#8EC8E0] my-10"
 				initial={{width: 0, opacity: 0}}
@@ -161,7 +161,7 @@ const GiftsAndConfirmation: React.FC = () => {
 				viewport={{once: false}}
 			/>
 
-			{/* 📞 Confirmar asistencia con modal */}
+			{/* ðŸ“ž Confirmar asistencia con modal */}
 			<motion.div
 				initial={{opacity: 0, y: 30}}
 				whileInView={{opacity: 1, y: 0}}
@@ -175,7 +175,7 @@ const GiftsAndConfirmation: React.FC = () => {
 				</h3>
 				<p className="text-[#4A7A8F] text-base mb-6">
 					Agradecemos que confirmes tu asistencia antes del{" "}
-					<span className="font-semibold text-[#6BAFC9]">20 de Noviembre</span>.
+					<span className="font-semibold text-[#6BAFC9]">10 de Marzo</span>.
 				</p>
 
 				<motion.button
@@ -184,14 +184,14 @@ const GiftsAndConfirmation: React.FC = () => {
 					whileTap={{scale: 0.95}}
 					className="w-52 py-3 rounded-full font-semibold text-white bg-[#6BAFC9] shadow-md hover:bg-[#2E6D8A] transition-all shadow-[#6BAFC9]/20"
 				>
-					💌 Confirmar Asistencia
+					ðŸ’Œ Confirmar Asistencia
 				</motion.button>
 			</motion.div>
 
-			{/* 📱 Modal de confirmación */}
+			{/* ðŸ“± Modal de confirmaciÃ³n */}
 			{showModal && <AttendanceModal onClose={() => setShowModal(false)} />}
 
-			{/* 💬 Nota final */}
+			{/* ðŸ’¬ Nota final */}
 			<motion.p
 				className="text-sm italic text-gray-500 mt-8"
 				initial={{opacity: 0, y: 10}}
@@ -199,7 +199,7 @@ const GiftsAndConfirmation: React.FC = () => {
 				transition={{duration: 1, delay: 0.5}}
 				viewport={{once: false}}
 			>
-				Evento exclusivo para adultos — ¡Te esperamos con mucha alegría!
+				Â¡Te esperamos con mucha alegrÃ­a!
 			</motion.p>
 		</section>
 	);

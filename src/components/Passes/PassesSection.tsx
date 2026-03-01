@@ -1,12 +1,12 @@
-import React, {useMemo} from "react";
+﻿import React, {useMemo} from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
-import flor from "../../assets/img/image.png";
+import flor from "../../assets/img/Flor-azul.png";
 
 const PassesSection: React.FC = () => {
 	const {scrollYProgress} = useScroll();
 	const florY = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
-	// 🔍 Detectar cantidad de personas del enlace
+	// ðŸ” Detectar cantidad de personas del enlace
 	const paseCount = useMemo(() => {
 		const path = window.location.pathname.toLowerCase();
 
@@ -17,7 +17,7 @@ const PassesSection: React.FC = () => {
 		return n >= 1 && n <= 5 ? n : 1;
 	}, []);
 
-	// 🪄 Texto adaptativo singular/plural
+	// ðŸª„ Texto adaptativo singular/plural
 	const paseText = paseCount === 1 ? "1 persona" : `${paseCount} personas`;
 
 	return (
@@ -28,11 +28,11 @@ const PassesSection: React.FC = () => {
 					"linear-gradient(160deg, #C8EBF9 0%, #DDF2FC 50%, #9ED4EC 100%)",
 			}}
 		>
-			{/* 🌸 Flor decorativa sutil */}
+			{/* ðŸŒ¸ Flor decorativa sutil */}
 			<motion.img
 				src={flor}
-				alt="Decoración floral"
-				style={{y: florY}}
+				alt="DecoraciÃ³n floral"
+				style={{y: florY, zIndex: 0}}
 				className="absolute top-1/2 left-1/2 w-80 sm:w-[28rem] opacity-10 transform -translate-x-1/2 -translate-y-1/2 rotate-[20deg] pointer-events-none select-none"
 				initial={{opacity: 0}}
 				whileInView={{opacity: 0.1}}
@@ -40,7 +40,7 @@ const PassesSection: React.FC = () => {
 				viewport={{once: false}}
 			/>
 
-			{/* ✨ Mensaje principal */}
+			{/* âœ¨ Mensaje principal */}
 			<motion.h3
 				className="text-lg md:text-3xl font-serif mb-4 leading-relaxed text-[#2E6D8A] max-w-2xl mx-auto px-4"
 				initial={{opacity: 0, y: 20}}
@@ -52,7 +52,7 @@ const PassesSection: React.FC = () => {
 				alguien deseas que el resto de tu vida empiece antes.
 			</motion.h3>
 
-			{/* 💞 Separador con corazón */}
+			{/* ðŸ’ž Separador con corazÃ³n */}
 			<motion.div
 				className="flex justify-center items-center gap-4 mt-4"
 				initial={{opacity: 0, scale: 0.9}}
@@ -72,7 +72,7 @@ const PassesSection: React.FC = () => {
 					whileInView={{scale: [0, 1.3, 1]}}
 					transition={{duration: 1.2, delay: 0.2}}
 				>
-					♥
+					â™¥
 				</motion.span>
 				<motion.div
 					className="w-1/5 border-t border-white/70"
@@ -82,7 +82,7 @@ const PassesSection: React.FC = () => {
 				/>
 			</motion.div>
 
-			{/* 💌 Subtexto */}
+			{/* ðŸ’Œ Subtexto */}
 			<motion.p
 				className="mt-8 text-sm md:text-base text-[#2E6D8A] italic font-semibold"
 				initial={{opacity: 0, y: 15}}
@@ -90,10 +90,10 @@ const PassesSection: React.FC = () => {
 				transition={{duration: 1, delay: 0.4}}
 				viewport={{once: false}}
 			>
-				Gracias por acompañarnos en este día tan especial.
+				Gracias por acompaÃ±arnos en este dÃ­a tan especial.
 			</motion.p>
 
-			{/* 🎟 Pase animado dinámico */}
+			{/* ðŸŽŸ Pase animado dinÃ¡mico */}
 			<motion.div
 				className="mt-10 inline-block bg-white/20 border border-white/40 rounded-2xl px-8 py-4 backdrop-blur-sm shadow-md"
 				initial={{opacity: 0, scale: 0.9, y: 20}}
