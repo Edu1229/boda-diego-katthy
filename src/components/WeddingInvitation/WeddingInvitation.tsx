@@ -64,13 +64,13 @@ const WeddingInvitation: React.FC = () => {
 					className="flex flex-col items-center"
 					style={{fontFamily: "'Caveat', cursive"}}
 				>
-					<h2 className="text-[#2E6D8A] text-4xl sm:text-6xl md:text-6xl font-medium">
+					<h2 className="text-[#2E6D8A] text-6xl sm:text-6xl md:text-8xl font-bold">
 						Diego
 					</h2>
 					<span className="text-[#6BAFC9] text-3xl sm:text-4xl md:text-5xl -my-2">
 						&
 					</span>
-					<h2 className="text-[#2E6D8A] text-4xl sm:text-6xl md:text-6xl font-bold">
+					<h2 className="text-[#2E6D8A] text-6xl sm:text-6xl md:text-8xl font-bold">
 						Kattherine
 					</h2>
 				</div>
