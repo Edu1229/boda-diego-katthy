@@ -251,7 +251,7 @@ const OverlayInicial: React.FC<Props> = ({onEnter, audioRef}) => {
 							className="text-xs"
 							style={{color: "#8EC8E0", letterSpacing: "0.15em"}}
 						>
-							Piura, Peru
+							Piura, Perú
 						</p>
 					</motion.div>
 
@@ -278,7 +278,7 @@ const OverlayInicial: React.FC<Props> = ({onEnter, audioRef}) => {
 							letterSpacing: "0.08em",
 						}}
 					>
-						Abrir invitacion &#9825;
+						Abrir invitación &#9825;
 					</motion.button>
 
 					{/* Mini nota al pie */}

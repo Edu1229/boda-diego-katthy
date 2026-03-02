@@ -1,6 +1,8 @@
 ﻿import React from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
 import flor from "../../assets/img/Flor-azul.png";
+import {IoDiamondSharp} from "react-icons/io5";
+import {FaDiamond} from "react-icons/fa6";
 
 /* â”€â”€ Sub-componente: bloque de familia (padres o hermanos) â”€â”€ */
 interface FamilyBlockProps {
@@ -82,7 +84,7 @@ const FamilySide: React.FC<FamilySideProps> = ({
 	</motion.div>
 );
 
-/* â”€â”€ Componente principal â”€â”€ */
+/* Componente principal */
 const ParentsSection: React.FC = () => {
 	const {scrollYProgress} = useScroll();
 	const florTopY = useTransform(scrollYProgress, [0, 1], [0, 50]);
@@ -118,7 +120,7 @@ const ParentsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			/>
 
-			{/* â”€â”€ Encabezado de secciÃ³n â”€â”€ */}
+			{/*  Encabezado de sección */}
 			<motion.div
 				className="relative z-10 mb-12"
 				initial={{opacity: 0, y: 20}}
@@ -135,7 +137,9 @@ const ParentsSection: React.FC = () => {
 				{/* Ornamento */}
 				<div className="flex items-center justify-center gap-3 mt-4">
 					<div className="h-px w-10 bg-[#8EC8E0]" />
-					<span className="text-[#8EC8E0] text-xs">âœ¦</span>
+					<span className="text-[#8EC8E0] text-xs">
+						<IoDiamondSharp size={12} />
+					</span>
 					<div className="h-px w-10 bg-[#8EC8E0]" />
 				</div>
 			</motion.div>
@@ -160,7 +164,9 @@ const ParentsSection: React.FC = () => {
 					viewport={{once: false, amount: 0.2}}
 				>
 					<div className="w-px h-12 bg-[#8EC8E0]" />
-					<span className="text-[#6BAFC9] text-xl">â™¡</span>
+					<span className="text-[#6BAFC9] text-xl">
+						<FaDiamond size={14} />
+					</span>
 					<div className="w-px h-12 bg-[#8EC8E0]" />
 				</motion.div>
 
@@ -189,7 +195,9 @@ const ParentsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			>
 				<div className="h-px w-14 bg-[#8EC8E0]" />
-				<span className="text-[#8EC8E0] text-sm">âœ¦</span>
+				<span className="text-[#8EC8E0] text-sm">
+					<IoDiamondSharp size={14} />
+				</span>
 				<div className="h-px w-14 bg-[#8EC8E0]" />
 			</motion.div>
 		</section>

@@ -1,5 +1,7 @@
 ﻿import React from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
+import {FaHeart} from "react-icons/fa";
+import {GiDiamondRing, GiRing} from "react-icons/gi";
 import flor from "../../assets/img/Flor-azul.png";
 
 /* â”€â”€ Paleta celeste pastel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -79,7 +81,7 @@ const SponsorsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			>
 				<p className="uppercase text-[10px] tracking-[0.3em] text-[#6BAFC9] mb-3">
-					Quienes hacen posible este dÃ­a
+					Quienes hacen posible este día
 				</p>
 				<h2 className="font-[Playfair_Display] text-3xl md:text-4xl text-[#2E6D8A]">
 					Nuestros Padrinos
@@ -87,7 +89,7 @@ const SponsorsSection: React.FC = () => {
 				{/* Ornamento */}
 				<div className="flex items-center justify-center gap-3 mt-4">
 					<div className="h-px w-10 bg-[#8EC8E0]" />
-					<span className="text-[#8EC8E0] text-xs">âœ¦</span>
+					<GiRing className="text-[#8EC8E0] text-base" />
 					<div className="h-px w-10 bg-[#8EC8E0]" />
 				</div>
 			</motion.div>
@@ -109,7 +111,7 @@ const SponsorsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			>
 				<div className="h-px w-12 bg-[#8EC8E0]" />
-				<span className="text-[#6BAFC9] text-base">ðŸ’</span>
+				<GiDiamondRing className="text-[#6BAFC9] text-xl" />
 				<div className="h-px w-12 bg-[#8EC8E0]" />
 			</motion.div>
 
@@ -148,14 +150,14 @@ const SponsorsSection: React.FC = () => {
 			>
 				<div className="flex items-center justify-center gap-3">
 					<div className="h-px w-14 bg-[#8EC8E0]" />
-					<span className="text-[#8EC8E0] text-sm">âœ¦</span>
+					<FaHeart className="text-[#e07aa0] text-xs" />
 					<div className="h-px w-14 bg-[#8EC8E0]" />
 				</div>
 				<p
 					className="text-lg sm:text-xl italic text-[#2E6D8A]/80"
 					style={{fontFamily: "'Dancing Script', cursive"}}
 				>
-					Nos gustarÃ­a que seas parte de este dÃ­a especial
+					Nos gustaría que seas parte de este día especial
 				</p>
 			</motion.div>
 		</section>

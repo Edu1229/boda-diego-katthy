@@ -224,7 +224,7 @@ const EventLocations: React.FC = () => {
 					time="12:00 HRS"
 					title="Bendición de Aros"
 					venue="Fundo Las Tortugas"
-					address="Piura, Peru"
+					address="Piura, Perú"
 					mapsUrl="https://maps.app.goo.gl/p1fbq5MQwu5SHjDe6"
 					delay={0}
 				/>
@@ -237,7 +237,7 @@ const EventLocations: React.FC = () => {
 					time="13:00 HRS"
 					title="Ceremonia Civil"
 					venue="Fundo Las Tortugas"
-					address="Piura, Peru"
+					address="Piura, Perú"
 					mapsUrl="https://maps.app.goo.gl/p1fbq5MQwu5SHjDe6"
 					delay={0.1}
 				/>
@@ -250,7 +250,7 @@ const EventLocations: React.FC = () => {
 					time="14:00 HRS"
 					title="Recepción"
 					venue="Fundo Las Tortugas"
-					address="Piura, Peru"
+					address="Piura, Perú"
 					mapsUrl="https://maps.app.goo.gl/p1fbq5MQwu5SHjDe6"
 					delay={0.2}
 				/>
