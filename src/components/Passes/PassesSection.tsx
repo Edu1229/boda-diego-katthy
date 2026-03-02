@@ -7,19 +7,24 @@ const PassesSection: React.FC = () => {
 	const {scrollYProgress} = useScroll();
 	const florY = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
-	// ðŸ” Detectar cantidad de personas del enlace
+	// Detectar cantidad de acompañantes del enlace
 	const paseCount = useMemo(() => {
 		const path = window.location.pathname.toLowerCase();
 
 		// Soporta /+pase1, /pase1, /pase/1
 		const match = path.match(/pase\/?(\d+)/) || path.match(/\+pase(\d+)/);
-		const n = match ? parseInt(match[1]) : 1;
-
-		return n >= 1 && n <= 5 ? n : 1;
+		if (!match) return 0; // Sin número → invitación personal, sin pase adicional
+		const n = parseInt(match[1]);
+		return n >= 0 && n <= 5 ? n : 0;
 	}, []);
 
-	// ðŸª„ Texto adaptativo singular/plural
-	const paseText = paseCount === 1 ? "1 persona" : `${paseCount} personas`;
+	// Texto según el tipo de pase
+	const paseLabel =
+		paseCount === 0
+			? "Invitación personal"
+			: paseCount === 1
+				? "1 acompañante"
+				: `${paseCount} acompañantes`;
 
 	return (
 		<section
@@ -103,7 +108,14 @@ const PassesSection: React.FC = () => {
 				viewport={{once: false}}
 			>
 				<p className="uppercase tracking-[0.15em] text-sm md:text-base text-white font-medium">
-					Pase para <span className="text-[#2E6D8A] font-bold">{paseText}</span>
+					{paseCount === 0 ? (
+						<span className="text-[#2E6D8A] font-bold">{paseLabel}</span>
+					) : (
+						<>
+							<span className="font-normal text-[#2E6D8A]">Pase para </span>
+							<span className="text-[#2E6D8A] font-bold">{paseLabel}</span>
+						</>
+					)}
 				</p>
 			</motion.div>
 		</section>
