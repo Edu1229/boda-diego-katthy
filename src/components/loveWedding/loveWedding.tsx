@@ -17,6 +17,14 @@ const slides = [pareja1, pareja2, pareja3, pareja4, pareja5, pareja6, pareja7];
 const LoveWedding: React.FC = () => {
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
+	// Precargar todas las imágenes en memoria para evitar flash blanco en el loop
+	useEffect(() => {
+		slides.forEach((src) => {
+			const img = new Image();
+			img.src = src;
+		});
+	}, []);
+
 	const autoplay = useRef(
 		Autoplay({delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true}),
 	);
@@ -48,7 +56,7 @@ const LoveWedding: React.FC = () => {
 			initial={{opacity: 0}}
 			whileInView={{opacity: 1}}
 			transition={{duration: 1.4, ease: "easeOut"}}
-			viewport={{once: false, amount: 0.2}}
+			viewport={{once: true, amount: 0.2}}
 		>
 			{/* Encabezado decorativo */}
 			<motion.div
@@ -117,7 +125,7 @@ const LoveWedding: React.FC = () => {
 					initial={{opacity: 0, scale: 0.96, y: 20}}
 					whileInView={{opacity: 1, scale: 1, y: 0}}
 					transition={{duration: 1.1, delay: 0.15}}
-					viewport={{once: false, amount: 0.3}}
+					viewport={{once: true, amount: 0.3}}
 				>
 					{/* Degradado superior en celeste */}
 					<div
@@ -131,20 +139,22 @@ const LoveWedding: React.FC = () => {
 					<div className="embla w-full h-full" ref={emblaRef}>
 						<div className="embla__container flex h-full">
 							{slides.map((src, index) => (
-								<motion.div
+								<div
 									key={index}
 									className="embla__slide flex-[0_0_100%] relative overflow-hidden h-full"
-									animate={{scale: selectedIndex === index ? 1.04 : 1}}
-									transition={{duration: 7, ease: "easeInOut"}}
-									style={{height: "100%"}}
 								>
 									<img
 										src={src}
 										alt={"Foto " + (index + 1)}
 										className="w-full h-full object-cover"
+										loading="eager"
+										decoding="async"
 										style={{
 											objectPosition: "center 18%",
 											filter: "brightness(0.93) saturate(1.07)",
+											transition: "transform 7s ease-in-out",
+											transform:
+												selectedIndex === index ? "scale(1.04)" : "scale(1)",
 										}}
 									/>
 									<div
@@ -154,7 +164,7 @@ const LoveWedding: React.FC = () => {
 												"linear-gradient(to top, rgba(46,109,138,0.22) 0%, transparent 55%)",
 										}}
 									/>
-								</motion.div>
+								</div>
 							))}
 						</div>
 					</div>
