@@ -1,18 +1,20 @@
 import React from "react";
-import pareja from "../../assets/img/pareja_3.png";
+import pareja from "../../assets/img/imagen_6.jpeg";
 
 const UsSection: React.FC = () => {
 	return (
-		<section
-			className="relative w-full min-h-screen flex flex-col justify-end items-center text-center overflow-hidden"
-			style={{
-				backgroundImage: `url(${pareja})`,
-				backgroundSize: "cover",
-				backgroundPosition: "center",
-			}}
-		>
+		<section className="relative w-full overflow-hidden">
+			{/* Degradado superior que fusiona con la sección anterior */}
+			<div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-[#EBF4FA] to-transparent z-10" />
+
+			<img
+				src={pareja}
+				alt="Diego y Katthy"
+				className="w-full h-[70vh] sm:h-[80vh] object-cover object-top"
+			/>
+
 			{/* Degradado inferior */}
-			<div className="absolute -top-2 left-0 w-full h-[45%] bg-gradient-to-b from-white via-white/90 to-transparent" />
+			<div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#1a3a52] to-transparent z-10" />
 		</section>
 	);
 };

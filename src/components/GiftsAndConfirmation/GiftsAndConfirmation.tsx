@@ -1,11 +1,128 @@
 ﻿import React, {useState} from "react";
-import {motion, useScroll, useTransform, AnimatePresence} from "framer-motion";
-import {Gift, MapPin, Heart, Phone} from "lucide-react";
+import {motion, useScroll, useTransform} from "framer-motion";
+import {
+	FaHeart,
+	FaCopy,
+	FaCheckCircle,
+	FaMobileAlt,
+	FaUniversity,
+} from "react-icons/fa";
+import {Gift, Phone, Sparkles} from "lucide-react";
 import flor from "../../assets/img/Flor-azul.png";
 import AttendanceModal from "../AttendanceModal/AttendanceModal";
 
+/* ── Tarjeta de cuenta con copiar ─────────────────────────── */
+interface AccountCardProps {
+	icon: React.ReactNode;
+	bank: string;
+	bankColor: string;
+	borderColor: string;
+	bgColor: string;
+	fields: {label: string; value: string}[];
+	delay: number;
+}
+
+const AccountCard: React.FC<AccountCardProps> = ({
+	icon,
+	bank,
+	bankColor,
+	borderColor,
+	bgColor,
+	fields,
+	delay,
+}) => {
+	const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+	const handleCopy = (value: string, key: string) => {
+		navigator.clipboard.writeText(value).then(() => {
+			setCopiedKey(key);
+			setTimeout(() => setCopiedKey(null), 2000);
+		});
+	};
+
+	return (
+		<motion.div
+			className={`w-full rounded-3xl shadow-lg border ${borderColor} ${bgColor} overflow-hidden`}
+			initial={{opacity: 0, y: 30}}
+			whileInView={{opacity: 1, y: 0}}
+			transition={{duration: 0.6, delay, ease: "easeOut"}}
+			viewport={{once: false}}
+		>
+			<div
+				className="px-5 py-3 flex items-center gap-3"
+				style={{background: bankColor}}
+			>
+				<div className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
+					{icon}
+				</div>
+				<p className="font-serif font-bold text-white text-sm uppercase tracking-wide">
+					{bank}
+				</p>
+			</div>
+
+			<div className="px-5 py-4 flex flex-col gap-3">
+				{fields.map((field) => {
+					const isCopied = copiedKey === field.label;
+					return (
+						<div key={field.label} className="flex flex-col gap-1">
+							<p className="text-[10px] font-semibold uppercase tracking-widest text-[#5a8099]">
+								{field.label}
+							</p>
+							<div className="flex items-center justify-between gap-2 bg-white/70 rounded-xl px-3 py-2 border border-white/80">
+								<span className="text-[#2E6D8A] font-mono text-sm font-semibold tracking-wide break-all">
+									{field.value}
+								</span>
+								<button
+									onClick={() => handleCopy(field.value, field.label)}
+									className="flex-shrink-0 text-[#6BAFC9] hover:text-[#2E6D8A] transition-colors ml-2"
+									aria-label={`Copiar ${field.label}`}
+								>
+									{isCopied ? (
+										<FaCheckCircle className="text-green-500 text-base" />
+									) : (
+										<FaCopy className="text-base" />
+									)}
+								</button>
+							</div>
+						</div>
+					);
+				})}
+			</div>
+		</motion.div>
+	);
+};
+
+/* ── Campo Plin con copiar independiente ──────────────────── */
+const PlinField: React.FC<{value: string}> = ({value}) => {
+	const [copied, setCopied] = useState(false);
+	const handleCopy = () => {
+		navigator.clipboard.writeText(value).then(() => {
+			setCopied(true);
+			setTimeout(() => setCopied(false), 2000);
+		});
+	};
+	return (
+		<div className="flex items-center justify-between gap-2 bg-white/70 rounded-xl px-3 py-2 border border-white/80">
+			<span className="text-[#6B2FA0] font-mono text-sm font-semibold tracking-wide">
+				{value}
+			</span>
+			<button
+				onClick={handleCopy}
+				className="flex-shrink-0 text-[#9B5DE5] hover:text-[#6B2FA0] transition-colors"
+				aria-label="Copiar número Plin"
+			>
+				{copied ? (
+					<FaCheckCircle className="text-green-500 text-base" />
+				) : (
+					<FaCopy className="text-base" />
+				)}
+			</button>
+		</div>
+	);
+};
+
+/* ── Componente principal ─────────────────────────────────── */
 const GiftsAndConfirmation: React.FC = () => {
-	const [option, setOption] = useState<"none" | "fisico" | "virtual">("none");
 	const [showModal, setShowModal] = useState(false);
 	const {scrollYProgress} = useScroll();
 	const florSuperiorY = useTransform(scrollYProgress, [0, 1], [0, 80]);
@@ -19,10 +136,10 @@ const GiftsAndConfirmation: React.FC = () => {
 					"linear-gradient(160deg, #F0F8FD 0%, #F7FBFE 60%, #EBF4FA 100%)",
 			}}
 		>
-			{/* ðŸŒ¸ Flor decorativa superior derecha */}
+			{/* Flores decorativas */}
 			<motion.img
 				src={flor}
-				alt="DecoraciÃ³n floral"
+				alt=""
 				style={{y: florSuperiorY, zIndex: 0}}
 				className="absolute top-0 right-0 w-44 sm:w-52 md:w-60 opacity-30 pointer-events-none select-none transform translate-x-8 -translate-y-4 rotate-[10deg]"
 				initial={{opacity: 0}}
@@ -30,11 +147,9 @@ const GiftsAndConfirmation: React.FC = () => {
 				transition={{duration: 1.2}}
 				viewport={{once: false}}
 			/>
-
-			{/* ðŸŒ¸ Flor decorativa inferior izquierda */}
 			<motion.img
 				src={flor}
-				alt="DecoraciÃ³n floral"
+				alt=""
 				style={{y: florInferiorY, zIndex: 0}}
 				className="absolute bottom-0 left-0 w-44 sm:w-52 md:w-60 opacity-25 pointer-events-none select-none transform -translate-x-8 translate-y-6 rotate-[200deg]"
 				initial={{opacity: 0}}
@@ -43,137 +158,144 @@ const GiftsAndConfirmation: React.FC = () => {
 				viewport={{once: false}}
 			/>
 
-			{/* ðŸŽ Sugerencia de Regalos */}
+			{/* ── ENCABEZADO ── */}
 			<motion.div
-				initial={{opacity: 0, y: 20}}
+				className="relative z-10 flex flex-col items-center mb-8"
+				initial={{opacity: 0, y: -20}}
 				whileInView={{opacity: 1, y: 0}}
-				transition={{duration: 1}}
+				transition={{duration: 0.8}}
 				viewport={{once: false}}
-				className="flex flex-col items-center justify-center"
 			>
-				<Gift size={38} strokeWidth={1.8} className="text-[#6BAFC9] mb-3" />
-				<h3 className="font-serif uppercase text-[#2E6D8A] tracking-widest text-lg mb-4">
-					Sugerencia de Regalos
+				<motion.div
+					animate={{rotate: [0, 10, -10, 0]}}
+					transition={{repeat: Infinity, duration: 3.5, ease: "easeInOut"}}
+					className="text-[#6BAFC9] mb-3"
+				>
+					<Gift size={40} strokeWidth={1.6} />
+				</motion.div>
+				<h3 className="font-serif uppercase text-[#2E6D8A] tracking-widest text-lg mb-2">
+					Sugerencia de regalo
 				</h3>
-				<p className="text-[#4A7A8F] max-w-md leading-relaxed mb-6">
-					El mejor regalo es tu presencia, pero si deseas tener un detalle con
-					nosotros, elige una opciÃ³n:
+				<div className="flex items-center gap-2 mb-3">
+					<span className="block h-px w-12 bg-[#B8DDEF]" />
+					<FaHeart className="text-[#e07aa0] text-xs" />
+					<span className="block h-px w-12 bg-[#B8DDEF]" />
+				</div>
+				<p className="text-[#4A7A8F] max-w-xs leading-relaxed text-sm">
+					Tu presencia es nuestro mejor regalo. Si deseas hacernos llegar un
+					aporte, puedes hacerlo de forma digital. ¡Gracias de corazón! 💙
 				</p>
 			</motion.div>
 
-			{/* ðŸ’Œ Botones de selecciÃ³n */}
+			{/* ── TITULAR ── */}
 			<motion.div
-				className="flex flex-col sm:flex-row gap-4 mb-8 mt-4"
-				initial={{opacity: 0, y: 20}}
-				whileInView={{opacity: 1, y: 0}}
-				transition={{duration: 1, delay: 0.2}}
+				className="relative z-10 mb-6 flex items-center gap-3 bg-white/70 rounded-2xl px-5 py-3 border border-[#c5e3f0] shadow-sm"
+				initial={{opacity: 0, scale: 0.9}}
+				whileInView={{opacity: 1, scale: 1}}
+				transition={{duration: 0.6, delay: 0.15}}
 				viewport={{once: false}}
 			>
-				<motion.button
-					onClick={() => setOption("fisico")}
-					whileHover={{scale: 1.05}}
-					whileTap={{scale: 0.95}}
-					className={`w-48 py-3 rounded-full font-medium flex items-center justify-center gap-2 shadow-md transition-all duration-300 ${
-						option === "fisico"
-							? "bg-[#6BAFC9] text-white scale-105 shadow-lg shadow-[#6BAFC9]/30"
-							: "bg-white text-[#2E6D8A] border border-[#B8DDEF] hover:bg-[#EEF7FB] hover:shadow-md"
-					}`}
-				>
-					<MapPin
-						size={20}
-						strokeWidth={2}
-						className={`${option === "fisico" ? "text-white" : "text-[#6BAFC9]"}`}
-					/>
-					<span>Regalo fÃ­sico</span>
-				</motion.button>
-
-				<motion.button
-					onClick={() => setOption("virtual")}
-					whileHover={{scale: 1.05}}
-					whileTap={{scale: 0.95}}
-					className={`w-48 py-3 rounded-full font-medium flex items-center justify-center gap-2 shadow-md transition-all duration-300 ${
-						option === "virtual"
-							? "bg-[#6BAFC9] text-white scale-105 shadow-lg shadow-[#6BAFC9]/30"
-							: "bg-white text-[#2E6D8A] border border-[#B8DDEF] hover:bg-[#EEF7FB] hover:shadow-md"
-					}`}
-				>
-					<Heart
-						size={20}
-						strokeWidth={2}
-						className={`${option === "virtual" ? "text-white" : "text-[#6BAFC9]"}`}
-					/>
-					<span>Plin / Virtual</span>
-				</motion.button>
+				<Sparkles size={18} className="text-[#e07aa0] flex-shrink-0" />
+				<div className="text-left">
+					<p className="text-[10px] uppercase tracking-widest text-[#5a8099] font-semibold">
+						Titular
+					</p>
+					<p className="text-[#2E6D8A] font-serif font-semibold text-sm">
+						Kattherine Mendoza Crisanto
+					</p>
+					<p className="text-[10px] text-[#4A7A8F] italic">La novia 👰</p>
+				</div>
 			</motion.div>
 
-			{/* ðŸ’¬ Mensajes dinÃ¡micos */}
-			<AnimatePresence mode="wait">
-				{option === "fisico" && (
-					<motion.div
-						key="fisico"
-						initial={{opacity: 0, y: 20}}
-						animate={{opacity: 1, y: 0}}
-						exit={{opacity: 0, y: -20}}
-						transition={{duration: 0.5}}
-						className="border border-[#B8DDEF] bg-[#F0F8FD] rounded-2xl shadow-sm p-5 max-w-sm mx-auto"
-					>
-						<h4 className="font-serif uppercase text-[#2E6D8A] tracking-wide text-lg mb-2">
-							Lugar de entrega
-						</h4>
-						<p className="text-[#4A7A8F] leading-relaxed">
-							Calle AndrÃ©s Garrido 470 <br /> El Obrero
-						</p>
-						<p className="mt-3 text-sm italic text-gray-600">
-							Puedes dejar tu obsequio en este domicilio. ðŸ’
-						</p>
-					</motion.div>
-				)}
+			{/* ── TARJETAS DE CUENTAS ── */}
+			<div className="relative z-10 w-full max-w-sm flex flex-col gap-5">
+				{/* Interbank */}
+				<AccountCard
+					delay={0.2}
+					bank="Interbank"
+					bankColor="linear-gradient(90deg, #006B3F 0%, #009250 100%)"
+					borderColor="border-[#b2dbc6]"
+					bgColor="bg-[#f0fbf5]"
+					icon={<FaUniversity className="text-white text-lg" />}
+					fields={[
+						{label: "Cuenta Simple Soles", value: "7323332947897"},
+						{label: "CCI (Interbancario)", value: "00373201333294789757"},
+					]}
+				/>
 
-				{option === "virtual" && (
-					<motion.div
-						key="virtual"
-						initial={{opacity: 0, y: 20}}
-						animate={{opacity: 1, y: 0}}
-						exit={{opacity: 0, y: -20}}
-						transition={{duration: 0.5}}
-						className="border border-[#B8DDEF] bg-[#F0F8FD] rounded-2xl shadow-sm p-5 max-w-sm mx-auto"
+				{/* Plin */}
+				<motion.div
+					className="w-full rounded-3xl shadow-lg border border-[#d4b8ef] bg-[#f8f2ff] overflow-hidden"
+					initial={{opacity: 0, y: 30}}
+					whileInView={{opacity: 1, y: 0}}
+					transition={{duration: 0.6, delay: 0.35, ease: "easeOut"}}
+					viewport={{once: false}}
+				>
+					<div
+						className="px-5 py-3 flex items-center gap-3"
+						style={{
+							background: "linear-gradient(90deg, #7B2FBE 0%, #9B5DE5 100%)",
+						}}
 					>
-						<h4 className="font-serif uppercase text-[#2E6D8A] tracking-wide text-lg mb-2">
-							Transferencia o Plin
-						</h4>
-						<p className="text-[#4A7A8F]">
-							NÃºmero: <span className="font-semibold">998 599 413</span>
+						<div className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
+							<FaMobileAlt className="text-white text-lg" />
+						</div>
+						<p className="font-serif font-bold text-white text-sm uppercase tracking-wide">
+							Plin
 						</p>
-						<p className="text-[#4A7A8F] mt-1">Titular: Javier &amp; Jema</p>
-						<p className="mt-3 text-sm italic text-gray-600">
-							Por favor, coordinar con los novios vÃ­a WhatsApp ðŸ’ž
+					</div>
+					<div className="px-5 py-4">
+						<p className="text-[10px] font-semibold uppercase tracking-widest text-[#7a4a9a] mb-1">
+							Número Plin
 						</p>
-					</motion.div>
-				)}
-			</AnimatePresence>
+						<PlinField value="900300652" />
+					</div>
+				</motion.div>
+			</div>
 
-			{/* âœ¨ LÃ­nea separadora */}
+			{/* Nota copiar */}
+			<motion.p
+				className="relative z-10 mt-4 text-[11px] text-[#8ab0bf] italic flex items-center gap-1 justify-center"
+				initial={{opacity: 0}}
+				whileInView={{opacity: 1}}
+				transition={{duration: 0.8, delay: 0.5}}
+				viewport={{once: false}}
+			>
+				Toca <FaCopy className="inline text-[10px]" /> para copiar el número
+			</motion.p>
+
+			{/* ── SEPARADOR ── */}
 			<motion.div
-				className="w-24 h-px bg-[#8EC8E0] my-10"
-				initial={{width: 0, opacity: 0}}
-				whileInView={{width: 96, opacity: 1}}
+				className="relative z-10 flex items-center gap-3 my-10 w-full max-w-sm"
+				initial={{opacity: 0}}
+				whileInView={{opacity: 1}}
 				transition={{duration: 1, delay: 0.4}}
 				viewport={{once: false}}
-			/>
+			>
+				<span className="flex-1 h-px bg-[#B8DDEF]" />
+				<FaHeart className="text-[#e07aa0] text-sm" />
+				<span className="flex-1 h-px bg-[#B8DDEF]" />
+			</motion.div>
 
-			{/* ðŸ“ž Confirmar asistencia con modal */}
+			{/* ── CONFIRMAR ASISTENCIA ── */}
 			<motion.div
 				initial={{opacity: 0, y: 30}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 1, delay: 0.2}}
 				viewport={{once: false}}
-				className="flex flex-col items-center justify-center"
+				className="relative z-10 flex flex-col items-center"
 			>
-				<Phone size={36} strokeWidth={1.8} className="text-[#6BAFC9] mb-3" />
-				<h3 className="font-serif uppercase text-[#2E6D8A] tracking-widest text-lg mb-3">
+				<motion.div
+					animate={{scale: [1, 1.12, 1]}}
+					transition={{repeat: Infinity, duration: 2.5, ease: "easeInOut"}}
+					className="text-[#6BAFC9] mb-3"
+				>
+					<Phone size={36} strokeWidth={1.8} />
+				</motion.div>
+				<h3 className="font-serif uppercase text-[#2E6D8A] tracking-widest text-lg mb-2">
 					Confirmar Asistencia
 				</h3>
-				<p className="text-[#4A7A8F] text-base mb-6">
+				<p className="text-[#4A7A8F] text-sm mb-6 max-w-xs leading-relaxed">
 					Agradecemos que confirmes tu asistencia antes del{" "}
 					<span className="font-semibold text-[#6BAFC9]">10 de Marzo</span>.
 				</p>
@@ -182,24 +304,23 @@ const GiftsAndConfirmation: React.FC = () => {
 					onClick={() => setShowModal(true)}
 					whileHover={{scale: 1.05}}
 					whileTap={{scale: 0.95}}
-					className="w-52 py-3 rounded-full font-semibold text-white bg-[#6BAFC9] shadow-md hover:bg-[#2E6D8A] transition-all shadow-[#6BAFC9]/20"
+					className="px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-[#6BAFC9] to-[#2E6D8A] shadow-md shadow-[#6BAFC9]/30 hover:shadow-lg transition-all"
 				>
-					ðŸ’Œ Confirmar Asistencia
+					💌 Confirmar Asistencia
 				</motion.button>
 			</motion.div>
 
-			{/* ðŸ“± Modal de confirmaciÃ³n */}
 			{showModal && <AttendanceModal onClose={() => setShowModal(false)} />}
 
-			{/* ðŸ’¬ Nota final */}
+			{/* Nota final */}
 			<motion.p
-				className="text-sm italic text-gray-500 mt-8"
+				className="relative z-10 text-sm italic text-[#8aabbc] mt-8"
 				initial={{opacity: 0, y: 10}}
 				whileInView={{opacity: 1, y: 0}}
 				transition={{duration: 1, delay: 0.5}}
 				viewport={{once: false}}
 			>
-				Â¡Te esperamos con mucha alegrÃ­a!
+				¡Te esperamos con mucha alegría! 🎉
 			</motion.p>
 		</section>
 	);
