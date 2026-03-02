@@ -12,14 +12,29 @@ import pareja5 from "../../assets/img/imagen_5.jpeg";
 import pareja6 from "../../assets/img/imagen_6.jpeg";
 import pareja7 from "../../assets/img/imagen_7.jpeg";
 
-const slides = [pareja1, pareja2, pareja3, pareja4, pareja5, pareja6, pareja7];
+interface Slide {
+	src: string;
+	fit?: "cover" | "contain";
+	position?: string;
+	bg?: string;
+}
+
+const slides: Slide[] = [
+	{src: pareja1, fit: "cover", position: "center 18%"},
+	{src: pareja2, fit: "contain", position: "center center", bg: "#1a2e1a"}, // horizontal - bicicleta
+	{src: pareja3, fit: "cover", position: "center 18%"},
+	{src: pareja4, fit: "cover", position: "center 18%"},
+	{src: pareja5, fit: "cover", position: "center 18%"},
+	{src: pareja6, fit: "cover", position: "center 18%"},
+	{src: pareja7, fit: "cover", position: "center 18%"},
+];
 
 const LoveWedding: React.FC = () => {
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	// Precargar todas las imágenes en memoria para evitar flash blanco en el loop
 	useEffect(() => {
-		slides.forEach((src) => {
+		slides.forEach(({src}) => {
 			const img = new Image();
 			img.src = src;
 		});
@@ -138,34 +153,42 @@ const LoveWedding: React.FC = () => {
 
 					<div className="embla w-full h-full" ref={emblaRef}>
 						<div className="embla__container flex h-full">
-							{slides.map((src, index) => (
-								<div
-									key={index}
-									className="embla__slide flex-[0_0_100%] relative overflow-hidden h-full"
-								>
-									<img
-										src={src}
-										alt={"Foto " + (index + 1)}
-										className="w-full h-full object-cover"
-										loading="eager"
-										decoding="async"
-										style={{
-											objectPosition: "center 18%",
-											filter: "brightness(0.93) saturate(1.07)",
-											transition: "transform 7s ease-in-out",
-											transform:
-												selectedIndex === index ? "scale(1.04)" : "scale(1)",
-										}}
-									/>
+							{slides.map(
+								({src, fit = "cover", position = "center 18%", bg}, index) => (
 									<div
-										className="absolute inset-0"
-										style={{
-											background:
-												"linear-gradient(to top, rgba(46,109,138,0.22) 0%, transparent 55%)",
-										}}
-									/>
-								</div>
-							))}
+										key={index}
+										className="embla__slide flex-[0_0_100%] relative overflow-hidden h-full"
+										style={
+											fit === "contain" ? {backgroundColor: bg ?? "#111"} : {}
+										}
+									>
+										<img
+											src={src}
+											alt={"Foto " + (index + 1)}
+											className="w-full h-full"
+											loading="eager"
+											decoding="async"
+											style={{
+												objectFit: fit,
+												objectPosition: position,
+												filter: "brightness(0.93) saturate(1.07)",
+												transition: "transform 7s ease-in-out",
+												transform:
+													selectedIndex === index && fit === "cover"
+														? "scale(1.04)"
+														: "scale(1)",
+											}}
+										/>
+										<div
+											className="absolute inset-0"
+											style={{
+												background:
+													"linear-gradient(to top, rgba(46,109,138,0.22) 0%, transparent 55%)",
+											}}
+										/>
+									</div>
+								),
+							)}
 						</div>
 					</div>
 
