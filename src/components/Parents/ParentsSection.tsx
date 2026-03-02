@@ -127,16 +127,16 @@ const ParentsSection: React.FC = () => {
 				viewport={{once: false, amount: 0.2}}
 			>
 				<p className="uppercase text-[10px] tracking-[0.3em] text-[#6BAFC9] mb-3">
-					Con el amor y bendiciÃ³n de
+					Con el amor y bendición de
 				</p>
 				<h1 className="font-[Playfair_Display] text-3xl md:text-4xl text-[#2E6D8A]">
 					Nuestras Familias
 				</h1>
 				{/* Ornamento */}
 				<div className="flex items-center justify-center gap-3 mt-4">
-				<div className="h-px w-10 bg-[#8EC8E0]" />
-				<span className="text-[#8EC8E0] text-xs">âœ¦</span>
-				<div className="h-px w-10 bg-[#8EC8E0]" />
+					<div className="h-px w-10 bg-[#8EC8E0]" />
+					<span className="text-[#8EC8E0] text-xs">âœ¦</span>
+					<div className="h-px w-10 bg-[#8EC8E0]" />
 				</div>
 			</motion.div>
 
@@ -159,9 +159,9 @@ const ParentsSection: React.FC = () => {
 					transition={{duration: 0.8, delay: 0.3}}
 					viewport={{once: false, amount: 0.2}}
 				>
-				<div className="w-px h-12 bg-[#8EC8E0]" />
-				<span className="text-[#6BAFC9] text-xl">â™¡</span>
-				<div className="w-px h-12 bg-[#8EC8E0]" />
+					<div className="w-px h-12 bg-[#8EC8E0]" />
+					<span className="text-[#6BAFC9] text-xl">â™¡</span>
+					<div className="w-px h-12 bg-[#8EC8E0]" />
 				</motion.div>
 
 				{/* Novia */}

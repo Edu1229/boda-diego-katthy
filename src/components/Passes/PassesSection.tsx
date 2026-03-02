@@ -1,5 +1,6 @@
 ﻿import React, {useMemo} from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
+import {FaHeart} from "react-icons/fa6";
 import flor from "../../assets/img/Flor-azul.png";
 
 const PassesSection: React.FC = () => {
@@ -67,12 +68,12 @@ const PassesSection: React.FC = () => {
 					transition={{duration: 1.2}}
 				/>
 				<motion.span
-					className="text-[#F2E0D2] text-2xl md:text-3xl"
+					className="text-[#f1c8a9] text-2xl md:text-3xl"
 					initial={{scale: 0}}
 					whileInView={{scale: [0, 1.3, 1]}}
 					transition={{duration: 1.2, delay: 0.2}}
 				>
-					â™¥
+					<FaHeart className="animate-pulse" />
 				</motion.span>
 				<motion.div
 					className="w-1/5 border-t border-white/70"
@@ -90,7 +91,7 @@ const PassesSection: React.FC = () => {
 				transition={{duration: 1, delay: 0.4}}
 				viewport={{once: false}}
 			>
-				Gracias por acompaÃ±arnos en este dÃ­a tan especial.
+				Gracias por acompañarnos en este día tan especial.
 			</motion.p>
 
 			{/* ðŸŽŸ Pase animado dinÃ¡mico */}

@@ -207,7 +207,7 @@ const EventLocations: React.FC = () => {
 					className="font-[Dancing_Script] text-3xl sm:text-4xl"
 					style={{color: "#2E6D8A"}}
 				>
-					Nuestra Celebracion
+					Nuestra Celebración
 				</h2>
 				<div className="flex items-center gap-2 mt-2">
 					<div className="h-px w-8" style={{background: "#B8DDEF"}} />
@@ -222,7 +222,7 @@ const EventLocations: React.FC = () => {
 				<EventCard
 					icon={<GiBigDiamondRing />}
 					time="12:00 HRS"
-					title="Bendicion de Aros"
+					title="Bendición de Aros"
 					venue="Fundo Las Tortugas"
 					address="Piura, Peru"
 					mapsUrl="https://maps.app.goo.gl/p1fbq5MQwu5SHjDe6"
@@ -248,7 +248,7 @@ const EventLocations: React.FC = () => {
 				<EventCard
 					icon={<Martini size={22} />}
 					time="14:00 HRS"
-					title="Recepcion"
+					title="Recepción"
 					venue="Fundo Las Tortugas"
 					address="Piura, Peru"
 					mapsUrl="https://maps.app.goo.gl/p1fbq5MQwu5SHjDe6"
@@ -282,7 +282,7 @@ const EventLocations: React.FC = () => {
 					className="italic text-2xl"
 					style={{fontFamily: "'Marck Script', cursive", color: "#2E6D8A"}}
 				>
-					Con carino,
+					Con cariño,
 				</p>
 				<p
 					className="text-3xl md:text-4xl -mt-1"
